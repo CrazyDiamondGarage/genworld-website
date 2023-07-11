@@ -113,9 +113,9 @@ const App = () => {
         />
 
         <img className={`${playing ? "gw-hide" : ""} game-window`} src="/img/screenshot_01.png" />
-        <button id="gw-btn-start-game" className={playing ? "gw-hide" : ""} onClick={playGame} disabled={playing}>
+        {/* <button id="gw-btn-start-game" className={playing ? "gw-hide" : ""} onClick={playGame} disabled={playing}>
           RUN
-        </button>
+        </button> */}
       </div>
 
       <div id="gw-middle" className={playing ? "" : "gw-hide"}>
