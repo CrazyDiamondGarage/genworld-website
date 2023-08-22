@@ -1,17 +1,23 @@
-@font-face {
-  font-family: "zpix";
-  src: local("zpix"), url("/font/zpix.ttf") format("truetype");
-  font-weight: bold;
-}
+/**
+ * @copyright Copyright 2023 CRAZY DIAMOND PTE LTD. All rights reserved.
+ * @see Crazy Diamond: https://github.com/CrazyDiamondGarage
+ * @see GenWorld: https://game.genworld.io/
+ * @author endaye
+ */
 
 :root {
-  font-family: zpix, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "ZCOOL KuaiLe", Arial, sans-serif;
+  /* font-family:  Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: dark;
-  color: rgba(255, 255, 255, 1);
-  background-color: #000000;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  /* background-color: green; */
+  background-color: 0xfafdec;
+
+  padding: 0;
+  margin: 0;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,48 +26,15 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: greenyellow;
-  text-decoration: inherit;
-  cursor: pointer;
-}
-a:hover {
-  color: #88ff64;
+html {
+  background-color: 0xfafdec;
+  padding: 0;
+  margin: 0;
 }
 
 body {
+  background-color: 0xfafdec;
+  padding: 0;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #000000;
-}
-
-h1 {
-  display: inline-block;
-  font-size: 3.2em;
-  line-height: 1.1;
-  font-weight: 900;
-}
-
-button {
-  color: white !important;
-  border-radius: 0 !important;
-  border: 4px solid white !important;
-  padding: 0.6em 1.2em !important;
-  font-size: 1em !important;
-  font-weight: 900 !important;
-  font-family: inherit !important;
-  background-color: #000 !important;
-  cursor: pointer !important;
-  transition: border-color 0.25s !important;
-}
-button:hover {
-  border-color: greenyellow !important;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  overflow: hidden;
 }
