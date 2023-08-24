@@ -19,27 +19,29 @@
 .content {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%; /* adjusted to fill the entire container */
   z-index: 2;
+  display: flex;
+  align-items: center; /* vertically center */
+  justify-content: center; /* horizontally center */
 }
 
 .screenshot {
   position: absolute;
   left: 20%;
-  top: 40%;
+  top: 50%; /* Adjust this value to move the screenshot up or down */
   width: 20%;
   height: auto;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  transform: translateY(-50%); /* Centers the screenshot vertically based on its own height */
 }
 
 .text {
-  position: absolute;
-  left: 50%;
   width: 20%;
-  height: auto;
   font-size: 3em;
   color: white;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  text-align: center; /* to ensure text within is centered */
 }
 
 .bar {
