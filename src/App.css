@@ -6,39 +6,35 @@
 }
 
 .background {
-  position: absolute;
+  position: relative;
   top: -10%;
-  /* These offsets are for the parallax effect */
   left: -10%;
-  width: 120%;
-  height: 120%;
-  background-image: url('path-to-your-background-image.jpg');
-  background-size: cover;
   background-position: center;
   z-index: 1;
   pointer-events: none;
+  width: 20%;
+  height: auto;
 }
 
 .content {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: auto;
   z-index: 2;
 }
 
-.screenshots {
+.screenshot {
   position: absolute;
   left: 0;
-  width: 50%;
-  height: 100%;
-  /* Add styles for the layered screenshots as needed */
+  width: 20%;
+  height: auto;
 }
 
 .text {
   position: absolute;
   right: 0;
-  width: 50%;
-  height: 100%;
+  width: 20%;
+  height: auto;
   font-size: 3em;
   color: white;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -48,9 +44,6 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 50px;
-  /* Adjust based on the height of your bar */
-  background-image: url('path-to-your-bar-image.png');
-  background-size: cover;
+  width: 20%;
+  height: auto;
 }
