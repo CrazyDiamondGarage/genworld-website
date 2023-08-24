@@ -32,8 +32,8 @@ function App() {
       <img src="/img/background1.png" alt="Background" className="background"/>
       <div className="content">
         <div className="screenshots">
-          <img src="/img/screenshot1.png" alt="Screenshot 1" className="screenshot" />
           <img src="/img/screenshot2.png" alt="Screenshot 2" className="screenshot" />
+          <img src="/img/screenshot1.png" alt="Screenshot 1" className="screenshot" />
           {/* //! Add more as needed */}
         </div>
         <div className="text" onClick={updateText}>

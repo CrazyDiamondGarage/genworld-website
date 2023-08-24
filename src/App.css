@@ -6,13 +6,13 @@
 }
 
 .background {
-  position: relative;
+  position: absolute;
   top: -10%;
   left: -10%;
   background-position: center;
   z-index: 1;
   pointer-events: none;
-  width: 20%;
+  width: 120%;
   height: auto;
 }
 
@@ -25,14 +25,16 @@
 
 .screenshot {
   position: absolute;
-  left: 0;
+  left: 20%;
+  top: 40%;
   width: 20%;
   height: auto;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .text {
   position: absolute;
-  right: 0;
+  left: 50%;
   width: 20%;
   height: auto;
   font-size: 3em;
@@ -42,8 +44,9 @@
 
 .bar {
   position: absolute;
+  z-index: 4;
   bottom: 0;
   left: 0;
-  width: 20%;
+  width: 100%;
   height: auto;
 }
