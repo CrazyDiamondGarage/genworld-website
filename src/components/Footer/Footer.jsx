@@ -11,7 +11,17 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="footer">GenLegend v{packageJson.version}. Copyright © 2023 Crazy Diamond. All rights reserved.</div>
+    <div className="footer">
+      <div className="footer-container">
+        <img id="footer-logo" src="/img/logo/logo_01.png" alt="" />
+        <img className="footer-line" src="/img/icon/cutting_line.png" alt="" />
+        <a id="footer-twitter" href="https://twitter.com/GenWorld2023" target="_blank">
+          <img src="/img/icon/icon_twitter.svg" alt="" />
+          <h5>Twitter</h5>
+        </a>
+        <div id="footer-copyright">© 2023 GenWorld</div>
+      </div>
+    </div>
   );
 };
 
