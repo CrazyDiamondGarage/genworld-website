@@ -23,6 +23,21 @@ const App = () => {
         <img className="card" id="card-2" src="/img/card/card_02.png" alt="" />
         <img className="card" id="card-1" src="/img/card/card_01.png" alt="" />
       </div>
+
+      <div className="titles">
+        <h2>Discover your unique</h2>
+        <h1>
+          <span>I-Se-Kai</span>_
+        </h1>
+        <h2>adventure gaming</h2>
+        <h2>experience.</h2>
+
+        <div className="sub-title">
+          powered by <b>Generative AI</b>
+        </div>
+
+        <div className="btc-play">Play online</div>
+      </div>
       <Footer />
     </>
   );
