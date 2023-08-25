@@ -23,7 +23,7 @@
   background-color: tomato;
   margin: 0;
   padding: 0;
-  top: calc(50vh - 256px - 24px);
+  top: calc(50vh - 360px - 24px);
   right: 52%;
 }
 
@@ -40,31 +40,31 @@
 #card-1 {
   right: 0;
   top: 0;
-  width: 512px;
+  width: 720px;
 }
 
 #card-2 {
   right: 72px;
   top: 24px;
-  width: 464px;
+  width: 672px;
 }
 
 #card-3 {
   right: 144px;
   top: 48px;
-  width: 416px;
+  width: 624px;
 }
 
 #card-4 {
   right: 216px;
   top: 72px;
-  width: 368px;
+  width: 576px;
 }
 
 #card-5 {
   right: 288px;
   top: 96px;
-  width: 320px;
+  width: 528px;
 }
 
 .titles {
