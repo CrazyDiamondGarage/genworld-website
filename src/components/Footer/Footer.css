@@ -7,22 +7,18 @@
   position: fixed;
   bottom: 0;
 
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 80%; /* 19.2px */
-
   /* background-color: magenta; */
 
   background: rgba(0, 0, 0, 0.1);
   background-blend-mode: soft-light;
   backdrop-filter: blur(24px);
-  height: 48px;
+  height: 84px;
   width: 100%;
 }
 
 .footer-container {
   height: 100%;
-  margin: 0 100px;
+  margin: 0 150px;
 
   /* background-color: mediumaquamarine; */
   display: flex;
@@ -34,12 +30,12 @@
 
 #footer-logo {
   position: relative;
-  height: 28px;
+  height: 42px;
 }
 
 .footer-line {
   height: 28px;
-  margin: 10px 20px;
+  margin: 10px 36px;
 }
 
 #footer-twitter {
@@ -53,12 +49,12 @@
 }
 
 #footer-twitter img {
-  height: 28px;
+  height: 38px;
 }
 
 #footer-twitter h5 {
   color: #fff;
-  font-size: 20px;
+  font-size: 32px;
   font-style: normal;
   font-weight: 500;
   line-height: 80%; /* 25.6px */
@@ -68,7 +64,7 @@
   flex-grow: 1;
   text-align: right;
   color: #fff;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 80%; /* 19.2px */
 }
