@@ -11,6 +11,9 @@ import packageJson from "../package.json";
 const App = () => {
   return (
     <>
+      <img id='bg-front' src="/img/bg/bg_01.jpg" alt="" />
+      <img src="/img/bg/bg_01.jpg" alt="" />
+
       <footer>GenLegend v{packageJson.version}. Copyright © 2023 Crazy Diamond. All rights reserved.</footer>
     </>
   );
