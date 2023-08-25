@@ -75,6 +75,7 @@
   top: calc(50vh - 256px - 24px);
   left: 52%;
   text-align: left !important;
+  cursor: default;
 }
 
 .titles h2 {
@@ -134,6 +135,8 @@
   width: fit-content !important;
   margin-top: 60px;
   padding: 16px 36px;
+
+  cursor: not-allowed;
 
   border-radius: 24px;
   border: 2px solid rgba(255, 255, 255, 0.4);
