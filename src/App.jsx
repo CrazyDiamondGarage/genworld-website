@@ -8,12 +8,14 @@
 // in index.js
 
 import Footer from "@comp/Footer";
+import "./App.css";
 
 const App = () => {
   return (
     <>
-      <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" />
+      <img id="bg-front" src="/img/bg/bg_01.png" alt="" />
       {/* <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" /> */}
+
       <Footer />
     </>
   );
