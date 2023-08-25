@@ -10,6 +10,7 @@ import packageJson from "@/../package.json";
 import "./Footer.css";
 
 const Footer = () => {
+  console.debug(`Version: ${packageJson.version}`);
   return (
     <div className="footer">
       <div className="footer-container">
