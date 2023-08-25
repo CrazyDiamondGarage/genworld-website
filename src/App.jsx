@@ -6,15 +6,15 @@
  */
 
 // in index.js
-import packageJson from "../package.json";
+
+import Footer from "@comp/Footer";
 
 const App = () => {
   return (
     <>
-      <img id='bg-front' src="/img/bg/bg_01.jpg" alt="" />
-      <img src="/img/bg/bg_01.jpg" alt="" />
-
-      <footer>GenLegend v{packageJson.version}. Copyright © 2023 Crazy Diamond. All rights reserved.</footer>
+      <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" />
+      {/* <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" /> */}
+      <Footer />
     </>
   );
 };
