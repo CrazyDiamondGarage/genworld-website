@@ -1,54 +1,145 @@
-.container {
-  position: relative;
+/**
+ * @copyright Copyright 2023 CRAZY DIAMOND PTE LTD. All rights reserved.
+ * @see Crazy Diamond: https://github.com/CrazyDiamondGarage
+ * @see GenWorld: https://genworld.io/
+ * @author endaye
+ */
+
+#root {
+  max-width: 1280px;
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
-.background {
-  position: absolute;
-  top: -10%;
-  left: -10%;
-  background-position: center;
-  z-index: 1;
-  pointer-events: none;
-  width: 120%;
-  height: auto;
+#bg-front {
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
-.content {
-  position: relative;
-  width: 100%;
-  height: 100%; /* adjusted to fill the entire container */
-  z-index: 2;
-  display: flex;
-  align-items: center; /* vertically center */
-  justify-content: center; /* horizontally center */
+.cards {
+  position: fixed !important;
+  background-color: tomato;
+  margin: 0;
+  padding: 0;
+  top: calc(50vh - 360px - 24px);
+  right: 52%;
 }
 
-.screenshot {
-  position: absolute;
-  left: 20%;
-  top: 50%; /* Adjust this value to move the screenshot up or down */
-  width: 20%;
-  height: auto;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  transform: translateY(-50%); /* Centers the screenshot vertically based on its own height */
+.card {
+  /* opacity: 0.3; */
+  position: absolute !important;
+  right: 0;
+  top: 0;
+  border-radius: 24px;
+  border: 1px solid #fff;
+  box-shadow: 0px 0px 72px 0px rgba(0, 0, 0, 0.7), 0px 0px 12px 0px rgba(0, 0, 0, 0.35);
 }
 
-.text {
-  width: 20%;
-  font-size: 3em;
-  color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  text-align: center; /* to ensure text within is centered */
+#card-1 {
+  right: 0;
+  top: 0;
+  width: 720px;
 }
 
-.bar {
-  position: absolute;
-  z-index: 4;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
+#card-2 {
+  right: 72px;
+  top: 24px;
+  width: 672px;
+}
+
+#card-3 {
+  right: 144px;
+  top: 48px;
+  width: 624px;
+}
+
+#card-4 {
+  right: 216px;
+  top: 72px;
+  width: 576px;
+}
+
+#card-5 {
+  right: 288px;
+  top: 96px;
+  width: 528px;
+}
+
+.titles {
+  position: fixed !important;
+  /* background-color: tomato; */
+  margin: 0;
+  padding: 0;
+  top: calc(50vh - 256px - 24px);
+  left: 52%;
+  text-align: left !important;
+  cursor: default;
+}
+
+.titles h2 {
+  border-radius: 12px;
+  background: #000;
+  padding-left: 20px;
+  color: #fff;
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 100%; /* 56px */
+  width: fit-content !important;
+  margin: 20px 0;
+}
+
+.titles h1 {
+  border-radius: 12px;
+  background: #000;
+  padding-left: 20px;
+  color: #fff;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 100%; /* 56px */
+  text-align: left !important;
+  width: fit-content !important;
+  margin: 20px 0;
+}
+
+.titles h1 span {
+  background: linear-gradient(90deg, #0ff 0%, #0f0 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sub-title {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #000;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 200%; /* 36px */
+
+  width: fit-content !important;
+  margin-top: 40px;
+
+  border-radius: 12px;
+  background: linear-gradient(90deg, #0ff 0%, #0f0 100%);
+}
+
+.btc-play {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 150%; /* 72px */
+
+  width: fit-content !important;
+  margin-top: 60px;
+  padding: 16px 36px;
+
+  cursor: not-allowed;
+
+  border-radius: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(4px);
 }
