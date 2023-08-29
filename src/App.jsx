@@ -29,10 +29,13 @@ const App = () => {
     cardsArr.map((card, i) => {
       const offset = i - activeIndex;
       const adjustedIndex = offset < 0 ? cardsArr.length + offset : offset;
-
+      const scale = 1 - 0.1 * adjustedIndex;
+      const opacity = 1 - 0.2 * adjustedIndex;
+  
       return {
-        transform: `translateX(${adjustedIndex * 80}px)`,
-        zIndex: -adjustedIndex
+        transform: `translateX(${adjustedIndex * -80}px) scale(${scale})`,
+        zIndex: -adjustedIndex,
+        opacity: opacity
       };
     })
   );
