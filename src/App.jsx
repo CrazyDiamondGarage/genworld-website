@@ -7,21 +7,56 @@
 
 // in index.js
 
+import React, { useState } from "react";
+import { animated, useSprings } from '@react-spring/web'
 import Footer from "@comp/Footer";
 import "./App.css";
 
+const cardsArr = [
+  "/img/card/card_01.jpg",
+  "/img/card/card_02.jpg",
+  "/img/card/card_03.jpg",
+  "/img/card/card_04.jpg",
+  "/img/card/card_05.jpg"
+];
+
 const App = () => {
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const springs = useSprings(
+    cardsArr.length,
+    cardsArr.map((card, i) => {
+      const offset = i - activeIndex;
+      const adjustedIndex = offset < 0 ? cardsArr.length + offset : offset;
+
+      return {
+        transform: `translateX(${adjustedIndex * 80}px)`,
+        zIndex: -adjustedIndex
+      };
+    })
+  );
+
+  const handleCardClick = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % cardsArr.length);
+  };
+
+
   return (
     <>
       <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" />
       {/* <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" /> */}
 
-      <div className="cards">
-        <img className="card" id="card-5" src="/img/card/card_05.jpg" alt="" />
-        <img className="card" id="card-4" src="/img/card/card_04.jpg" alt="" />
-        <img className="card" id="card-3" src="/img/card/card_03.jpg" alt="" />
-        <img className="card" id="card-2" src="/img/card/card_02.jpg" alt="" />
-        <img className="card" id="card-1" src="/img/card/card_01.jpg" alt="" />
+      <div className="cards" onClick={handleCardClick}>
+        {springs.map((props, i) => (
+          <animated.img
+            key={i}
+            className="card"
+            src={cardsArr[i]}
+            alt=""
+            style={props}
+          />
+        ))}
       </div>
 
       <div className="titles">

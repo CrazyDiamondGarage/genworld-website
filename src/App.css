@@ -5,7 +5,7 @@
  * @author endaye
  */
 
-#root {
+ #root {
   max-width: 1280px;
   width: 100vw;
   margin: 0;
@@ -20,56 +20,27 @@
 
 .cards {
   position: fixed !important;
-  background-color: tomato;
+  background-color: tomato; /* You might want to remove this once design is finalized */
   margin: 0;
   padding: 0;
   top: calc(50vh - 360px - 24px);
   right: 52%;
+  cursor: pointer; 
 }
 
 .card {
-  /* opacity: 0.3; */
   position: absolute !important;
   right: 0;
   top: 0;
   border-radius: 24px;
   border: 1px solid #fff;
   box-shadow: 0px 0px 72px 0px rgba(0, 0, 0, 0.7), 0px 0px 12px 0px rgba(0, 0, 0, 0.35);
-}
-
-#card-1 {
-  right: 0;
-  top: 0;
-  width: 720px;
-}
-
-#card-2 {
-  right: 72px;
-  top: 24px;
-  width: 672px;
-}
-
-#card-3 {
-  right: 144px;
-  top: 48px;
-  width: 624px;
-}
-
-#card-4 {
-  right: 216px;
-  top: 72px;
-  width: 576px;
-}
-
-#card-5 {
-  right: 288px;
-  top: 96px;
-  width: 528px;
+  will-change: transform;
+  transition: transform 0.5s ease;
 }
 
 .titles {
   position: fixed !important;
-  /* background-color: tomato; */
   margin: 0;
   padding: 0;
   top: calc(50vh - 256px - 24px);
@@ -85,7 +56,7 @@
   color: #fff;
   font-size: 56px;
   font-weight: 500;
-  line-height: 100%; /* 56px */
+  line-height: 100%;
   width: fit-content !important;
   margin: 20px 0;
 }
@@ -97,7 +68,7 @@
   color: #fff;
   font-size: 72px;
   font-weight: 500;
-  line-height: 100%; /* 56px */
+  line-height: 100%;
   text-align: left !important;
   width: fit-content !important;
   margin: 20px 0;
@@ -117,11 +88,9 @@
   font-size: 24px;
   font-style: italic;
   font-weight: 400;
-  line-height: 200%; /* 36px */
-
+  line-height: 200%;
   width: fit-content !important;
   margin-top: 40px;
-
   border-radius: 12px;
   background: linear-gradient(90deg, #0ff 0%, #0f0 100%);
 }
@@ -130,14 +99,11 @@
   color: rgba(255, 255, 255, 0.4);
   font-size: 48px;
   font-weight: 400;
-  line-height: 150%; /* 72px */
-
+  line-height: 150%;
   width: fit-content !important;
   margin-top: 60px;
   padding: 16px 36px;
-
   cursor: not-allowed;
-
   border-radius: 24px;
   border: 2px solid rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.12);
