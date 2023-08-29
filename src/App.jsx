@@ -17,6 +17,11 @@ const cardsArr = [
   "/img/card/card_02.jpg",
   "/img/card/card_03.jpg",
   "/img/card/card_04.jpg",
+  "/img/card/card_05.jpg",
+  "/img/card/card_01.jpg",
+  "/img/card/card_02.jpg",
+  "/img/card/card_03.jpg",
+  "/img/card/card_04.jpg",
   "/img/card/card_05.jpg"
 ];
 
@@ -28,12 +33,31 @@ const App = () => {
     cardsArr.length,
     cardsArr.map((card, i) => {
       const offset = i - activeIndex;
-      const adjustedIndex = offset < 0 ? cardsArr.length + offset : offset;
-      const scale = 1 - 0.1 * adjustedIndex;
-      const opacity = 1 - 0.2 * adjustedIndex;
+      let adjustedIndex;
+      let scale = 1;
+      let opacity = 1;
+      let transform;
+  
+      adjustedIndex = offset < 0 ? cardsArr.length + offset : offset;
+      scale = 1 - 0.1 * adjustedIndex;
+      opacity = 1 - 0.2 * adjustedIndex;
+      transform = `translateX(${adjustedIndex * -80}px) scale(${scale})`;
+      // if (offset === 0) {
+        
+      // } else if (offset === -1) {
+      //   // This is the card that will come in from the left
+      //   adjustedIndex = 0;
+      //   opacity = 0; 
+      //   transform = `translateX(${adjustedIndex * -80}px) scale(${scale})`;
+      // } else {
+      //   adjustedIndex = offset < 0 ? cardsArr.length + offset : offset;
+      //   scale = 1 - 0.1 * adjustedIndex;
+      //   opacity = 1 - 0.2 * adjustedIndex;
+      //   transform = `translateX(${adjustedIndex * -80}px) scale(${scale})`;
+      // }
   
       return {
-        transform: `translateX(${adjustedIndex * -80}px) scale(${scale})`,
+        transform: transform,
         zIndex: -adjustedIndex,
         opacity: opacity
       };
