@@ -8,8 +8,9 @@
 // in index.js
 
 import React, { useState } from "react";
-import { animated, useSprings } from '@react-spring/web'
+import { animated, useSprings } from "@react-spring/web";
 import Footer from "@comp/Footer";
+import "@comp/firebase";
 import "./App.css";
 
 const cardsArr = [
@@ -22,11 +23,10 @@ const cardsArr = [
   "/img/card/card_02.jpg",
   "/img/card/card_03.jpg",
   "/img/card/card_04.jpg",
-  "/img/card/card_05.jpg"
+  "/img/card/card_05.jpg",
 ];
 
 const App = () => {
-
   const [activeIndex, setActiveIndex] = useState(0);
 
   const springs = useSprings(
@@ -37,7 +37,7 @@ const App = () => {
       let scale = 1;
       let opacity = 1;
       let transform;
-  
+
       if (offset === 0) {
         adjustedIndex = offset < 0 ? cardsArr.length + offset : offset;
         scale = 1 - 0.1 * adjustedIndex;
@@ -46,7 +46,7 @@ const App = () => {
       } else if (offset === -1) {
         // This is the card that will come in from the left
         adjustedIndex = 0;
-        opacity = 0; 
+        opacity = 0;
         transform = `translateX(${adjustedIndex * -200}px) scale(${scale})`;
       } else {
         adjustedIndex = offset < 0 ? cardsArr.length + offset : offset;
@@ -54,11 +54,11 @@ const App = () => {
         opacity = 1.2 - 0.2 * adjustedIndex;
         transform = `translateX(${adjustedIndex * -80}px) scale(${scale})`;
       }
-  
+
       return {
         transform: transform,
         zIndex: -adjustedIndex,
-        opacity: opacity
+        opacity: opacity,
       };
     })
   );
@@ -67,7 +67,6 @@ const App = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % cardsArr.length);
   };
 
-
   return (
     <>
       <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" />
@@ -75,13 +74,7 @@ const App = () => {
 
       <div className="cards" onClick={handleCardClick}>
         {springs.map((props, i) => (
-          <animated.img
-            key={i}
-            className="card"
-            src={cardsArr[i]}
-            alt=""
-            style={props}
-          />
+          <animated.img key={i} className="card" src={cardsArr[i]} alt="" style={props} />
         ))}
       </div>
 
@@ -102,6 +95,6 @@ const App = () => {
       <Footer />
     </>
   );
-}
+};
 
 export default App;
