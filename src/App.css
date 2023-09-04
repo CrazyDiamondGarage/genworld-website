@@ -19,7 +19,7 @@
   /* background-color: #0f0; */
 }
 
-#bg-front {
+.bg {
   position: fixed;
   top: 0;
   bottom: 0;

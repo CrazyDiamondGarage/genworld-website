@@ -8,7 +8,7 @@
 // in index.js
 
 import React, { useEffect, useState } from "react";
-import { animated, useSprings } from "@react-spring/web";
+import { animated, useTransition, useSpring, useSprings } from "@react-spring/web";
 import Footer from "@comp/Footer";
 import "@comp/firebase";
 import "./App.css";
@@ -28,13 +28,22 @@ const cardsArr = [
   "/img/card/card_05.jpg",
 ];
 
+const bgsArr = [
+  "/img/bg/bg_01.jpg",
+  "/img/bg/bg_02.jpg",
+  "/img/bg/bg_03.jpg",
+  "/img/bg/bg_04.jpg",
+  "/img/bg/bg_05.jpg",
+];
+
 const App = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [cardIdx, setCardIdx] = useState(0);
+  const [bgIdx, setBgIdx] = useState(0);
 
   const springs = useSprings(
     cardsArr.length,
     cardsArr.map((card, i) => {
-      const offset = i - activeIndex;
+      const offset = i - cardIdx;
       let adjustedIndex;
       let scale = 1;
       let opacity = 1;
@@ -65,8 +74,18 @@ const App = () => {
     })
   );
 
+  const [props, api] = useSpring(
+    () => ({
+      from: { opacity: 0 },
+      to: { opacity: 1 },
+      config: { duration: 5000 },
+    }),
+    []
+  );
+
   const handleCardClick = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % cardsArr.length);
+    setCardIdx((prevIdx) => (prevIdx + 1) % cardsArr.length);
+    setBgIdx((prevIdx) => (prevIdx + 1) % bgsArr.length);
   };
 
   useEffect(() => {
@@ -79,8 +98,10 @@ const App = () => {
 
   return (
     <>
-      <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" />
-      {/* <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" /> */}
+      <animated.img id="bg-back" className="bg" src={bgsArr[(bgIdx - 1) % bgsArr.length]} alt="" style={props} />
+      <animated.img id="bg-front" className="bg" src={bgsArr[bgIdx]} alt="" style={props} />
+      {/* <animated.img id="bg-back" className="bg" src="/img/bg/bg_01.jpg" alt="" style={props} /> */}
+      {/* <animated.img id="bg-front" className="bg" src="/img/bg/bg_02.jpg" alt="" style={props} /> */}
 
       <div className="cards" onClick={handleCardClick}>
         {springs.map((props, i) => (
