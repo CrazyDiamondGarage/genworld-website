@@ -143,16 +143,22 @@
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   :root {
-    zoom: 0.4;
+    zoom: 0.6;
   }
 }
 
 @media screen and (max-width: 768px) {
   :root {
-    zoom: 0.8;
+    zoom: 0.5;
   }
 
   .cards {
     display: none;
+  }
+
+  .titles {
+    left: 0;
+    right: 0;
+    width: 88%;
   }
 }

@@ -69,3 +69,9 @@
   line-height: 80%; /* 19.2px */
   cursor: default;
 }
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    margin: 0 20px;
+  }
+}
