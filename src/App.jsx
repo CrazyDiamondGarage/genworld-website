@@ -9,6 +9,7 @@
 
 import React, { useEffect, useState } from "react";
 import { animated, useSprings } from "@react-spring/web";
+import { shuffle } from "txt-shuffle";
 import Footer from "@comp/Footer";
 import "@comp/firebase";
 import "./App.css";
@@ -41,9 +42,13 @@ const bgsArr = [
   "/img/bg/bg_05.jpg",
 ];
 
+const slogansArr = ["I-Se-Kai", "CyberPunk", "Sci-Fi", "D&D World", "School Romance"];
+
 const App = () => {
   const [cardIdx, setCardIdx] = useState(0);
   const [bgIdx, setBgIdx] = useState(0);
+  const [sloganIdx, setSloganIdx] = useState(0);
+  const [slogan, setSlogan] = useState(slogansArr[0]);
 
   const cardSprings = useSprings(
     cardsArr.length,
@@ -107,6 +112,7 @@ const App = () => {
   const handleCardClick = () => {
     setBgIdx((prevIdx) => (prevIdx + 1) % bgsArr.length);
     setCardIdx((prevIdx) => (prevIdx + 1) % cardsArr.length);
+    setSloganIdx((prevIdx) => (prevIdx + 1) % slogansArr.length);
   };
 
   useEffect(() => {
@@ -116,6 +122,18 @@ const App = () => {
 
     return () => clearInterval(tid);
   }, []);
+
+  useEffect(() => {
+    console.log("Slogan changed");
+
+    shuffle({
+      text: slogansArr[sloganIdx],
+      fps: 20,
+      onUpdate: (output) => {
+        setSlogan(output);
+      },
+    });
+  }, [sloganIdx]);
 
   return (
     <>
@@ -134,7 +152,7 @@ const App = () => {
       <div className="titles">
         <h2>Discover your unique</h2>
         <h1>
-          <span>I-Se-Kai</span>_
+          <span>{slogan}</span>_
         </h1>
         <h2>adventure gaming</h2>
         <h2>experience.</h2>
