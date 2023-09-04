@@ -124,8 +124,6 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    console.log("Slogan changed");
-
     shuffle({
       text: slogansArr[sloganIdx],
       fps: 20,
@@ -152,12 +150,12 @@ const App = () => {
       <div className="titles">
         <h2>Discover your unique</h2>
         <h1>
-          <span>{slogan}</span>_
+          <span className={`card-gradient-${sloganIdx}`}>{slogan}</span>_
         </h1>
         <h2>adventure gaming</h2>
         <h2>experience.</h2>
 
-        <div className="sub-title">
+        <div className={`sub-title card-gradient-${sloganIdx}`}>
           powered by <b>Generative AI</b>
         </div>
 

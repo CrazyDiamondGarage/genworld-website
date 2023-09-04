@@ -93,8 +93,27 @@
   margin: 20px 0;
 }
 
-.titles h1 span {
+.card-gradient-0 {
   background: linear-gradient(90deg, #0ff 0%, #0f0 100%);
+}
+
+.card-gradient-1 {
+  background: linear-gradient(90deg, #fd93ff 0%, #56ffff 100%);
+}
+
+.card-gradient-2 {
+  background: linear-gradient(90deg, #ffde9d 0%, #0ff 100%);
+}
+
+.card-gradient-3 {
+  background: linear-gradient(90deg, #ffd493 0%, #ff5656 100%);
+}
+
+.card-gradient-4 {
+  background: linear-gradient(90deg, #fc70ff 0%, #ffd056 100%);
+}
+
+.titles h1 span {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -111,7 +130,6 @@
   width: fit-content !important;
   margin-top: 40px;
   border-radius: 12px;
-  background: linear-gradient(90deg, #0ff 0%, #0f0 100%);
 }
 
 .btc-play {
