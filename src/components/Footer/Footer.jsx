@@ -9,8 +9,9 @@ import React from "react";
 import packageJson from "@/../package.json";
 import "./Footer.css";
 
+console.debug(`Version: ${packageJson.version}`);
+
 const Footer = () => {
-  console.debug(`Version: ${packageJson.version}`);
   return (
     <div className="footer">
       <div className="footer-container">

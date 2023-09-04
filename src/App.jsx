@@ -7,11 +7,13 @@
 
 // in index.js
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { animated, useSprings } from "@react-spring/web";
 import Footer from "@comp/Footer";
 import "@comp/firebase";
 import "./App.css";
+
+const NEXT_CARD_TIME = 2000;
 
 const cardsArr = [
   "/img/card/card_01.jpg",
@@ -67,12 +69,20 @@ const App = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % cardsArr.length);
   };
 
+  useEffect(() => {
+    const tid = setInterval(() => {
+      handleCardClick();
+    }, NEXT_CARD_TIME);
+
+    return () => clearInterval(tid);
+  }, []);
+
   return (
     <>
       <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" />
       {/* <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" /> */}
 
-      <div className="cards" onClick={handleCardClick}>
+      <div className="cards">
         {springs.map((props, i) => (
           <animated.img key={i} className="card" src={cardsArr[i]} alt="" style={props} />
         ))}
