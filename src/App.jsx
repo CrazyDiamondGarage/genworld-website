@@ -13,6 +13,14 @@ import Footer from "@comp/Footer";
 import "@comp/firebase";
 import "./App.css";
 
+const bgArr = [
+  "/img/bg/bg_01.jpg",
+  "/img/bg/bg_02.jpg",
+  "/img/bg/bg_03.jpg",
+  "/img/bg/bg_04.jpg",
+  "/img/bg/bg_05.jpg"
+];
+
 const cardsArr = [
   "/img/card/card_01.jpg",
   "/img/card/card_02.jpg",
@@ -29,7 +37,7 @@ const cardsArr = [
 const App = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const springs = useSprings(
+  const cardSprings = useSprings(
     cardsArr.length,
     cardsArr.map((card, i) => {
       const offset = i - activeIndex;
@@ -63,17 +71,30 @@ const App = () => {
     })
   );
 
+  const bgSprings = useSprings(
+    bgArr.length,
+    bgArr.map((_, i) => ({
+      opacity: i === activeIndex ? 1 : 0,
+      position: 'absolute', 
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%'
+    }))
+  );
+
   const handleCardClick = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % cardsArr.length);
   };
 
   return (
     <>
-      <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" />
-      {/* <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" /> */}
+      {bgSprings.map((props, i) => (
+        <animated.img key={i} id="bg-front" src={bgArr[i]} alt="" style={props} />
+      ))}
 
       <div className="cards" onClick={handleCardClick}>
-        {springs.map((props, i) => (
+        {cardSprings.map((props, i) => (
           <animated.img key={i} className="card" src={cardsArr[i]} alt="" style={props} />
         ))}
       </div>
@@ -92,6 +113,7 @@ const App = () => {
 
         <div className="btc-play">Play online</div>
       </div>
+      
       <Footer />
     </>
   );
