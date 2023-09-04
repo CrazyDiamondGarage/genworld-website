@@ -74,8 +74,8 @@ const App = () => {
   const bgSprings = useSprings(
     bgArr.length,
     bgArr.map((_, i) => ({
-      opacity: i === activeIndex ? 1 : 0,
-      position: 'absolute', 
+      opacity: i === (activeIndex % bgArr.length) ? 1 : 0,
+      position: 'absolute',
       top: 0,
       left: 0,
       width: '100%',
@@ -113,7 +113,7 @@ const App = () => {
 
         <div className="btc-play">Play online</div>
       </div>
-      
+
       <Footer />
     </>
   );
