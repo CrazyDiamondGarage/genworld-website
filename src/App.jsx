@@ -42,7 +42,7 @@ const bgsArr = [
   "/img/bg/bg_05.jpg",
 ];
 
-const slogansArr = ["I-Se-Kai", "CyberPunk", "Sci-Fi", "D&D World", "School Romance"];
+const slogansArr = ["I-Se-Kai", "CyberPunk", "Sci-Fi", "Dark Fantasy", "School Romance"];
 
 const App = () => {
   const [cardIdx, setCardIdx] = useState(0);
