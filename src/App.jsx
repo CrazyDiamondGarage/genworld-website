@@ -82,7 +82,7 @@ const App = () => {
       <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" />
       {/* <img id="bg-front" src="/img/bg/bg_01.jpg" alt="" /> */}
 
-      <div className="cards">
+      <div className="cards" onClick={handleCardClick}>
         {springs.map((props, i) => (
           <animated.img key={i} className="card" src={cardsArr[i]} alt="" style={props} />
         ))}
