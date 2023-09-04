@@ -113,10 +113,27 @@
   background: linear-gradient(90deg, #fc70ff 0%, #ffd056 100%);
 }
 
-.titles h1 span {
+.card-slogan {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.blink {
+  animation: blinker 0.5s linear infinite;
+  font-weight: 700;
+}
+
+@keyframes blinker {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .sub-title {

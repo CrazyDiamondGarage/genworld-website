@@ -150,7 +150,8 @@ const App = () => {
       <div className="titles">
         <h2>Discover your unique</h2>
         <h1>
-          <span className={`card-gradient-${sloganIdx}`}>{slogan}</span>_
+          <span className={`card-slogan card-gradient-${sloganIdx}`}>{slogan}</span>
+          <span className="card-cursor blink">_</span>
         </h1>
         <h2>adventure gaming</h2>
         <h2>experience.</h2>
