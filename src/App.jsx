@@ -8,7 +8,7 @@
 // in index.js
 
 import React, { useEffect, useState } from "react";
-import { animated, useTransition, useSpring, useSprings } from "@react-spring/web";
+import { animated, useSprings } from "@react-spring/web";
 import Footer from "@comp/Footer";
 import "@comp/firebase";
 import "./App.css";
@@ -34,13 +34,18 @@ const bgsArr = [
   "/img/bg/bg_03.jpg",
   "/img/bg/bg_04.jpg",
   "/img/bg/bg_05.jpg",
+  "/img/bg/bg_01.jpg",
+  "/img/bg/bg_02.jpg",
+  "/img/bg/bg_03.jpg",
+  "/img/bg/bg_04.jpg",
+  "/img/bg/bg_05.jpg",
 ];
 
 const App = () => {
   const [cardIdx, setCardIdx] = useState(0);
   const [bgIdx, setBgIdx] = useState(0);
 
-  const springs = useSprings(
+  const cardSprings = useSprings(
     cardsArr.length,
     cardsArr.map((card, i) => {
       const offset = i - cardIdx;
@@ -74,18 +79,34 @@ const App = () => {
     })
   );
 
-  const [props, api] = useSpring(
-    () => ({
-      from: { opacity: 0 },
-      to: { opacity: 1 },
-      config: { duration: 5000 },
-    }),
-    []
+  const bgSprings = useSprings(
+    bgsArr.length,
+    bgsArr.map((bg, i) => {
+      const offset = i - cardIdx;
+      let adjustedIndex;
+      let opacity = 1;
+
+      if (offset === 0) {
+        adjustedIndex = offset < 0 ? bgsArr.length + offset : offset;
+        opacity = 1 - 0.2 * adjustedIndex;
+      } else if (offset === -1) {
+        adjustedIndex = 0;
+        opacity = 0;
+      } else {
+        adjustedIndex = offset < 0 ? bgsArr.length + offset : offset;
+        opacity = 1.2 - 0.2 * adjustedIndex;
+      }
+
+      return {
+        zIndex: -adjustedIndex,
+        opacity: opacity,
+      };
+    })
   );
 
   const handleCardClick = () => {
-    setCardIdx((prevIdx) => (prevIdx + 1) % cardsArr.length);
     setBgIdx((prevIdx) => (prevIdx + 1) % bgsArr.length);
+    setCardIdx((prevIdx) => (prevIdx + 1) % cardsArr.length);
   };
 
   useEffect(() => {
@@ -98,13 +119,14 @@ const App = () => {
 
   return (
     <>
-      <animated.img id="bg-back" className="bg" src={bgsArr[(bgIdx - 1) % bgsArr.length]} alt="" style={props} />
-      <animated.img id="bg-front" className="bg" src={bgsArr[bgIdx]} alt="" style={props} />
-      {/* <animated.img id="bg-back" className="bg" src="/img/bg/bg_01.jpg" alt="" style={props} /> */}
-      {/* <animated.img id="bg-front" className="bg" src="/img/bg/bg_02.jpg" alt="" style={props} /> */}
+      <div className="bgs">
+        {bgSprings.map((props, i) => (
+          <animated.img key={i} className="bg" src={bgsArr[i]} alt="" style={props} />
+        ))}
+      </div>
 
       <div className="cards" onClick={handleCardClick}>
-        {springs.map((props, i) => (
+        {cardSprings.map((props, i) => (
           <animated.img key={i} className="card" src={cardsArr[i]} alt="" style={props} />
         ))}
       </div>
