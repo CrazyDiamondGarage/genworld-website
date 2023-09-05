@@ -137,13 +137,13 @@ const App = () => {
     <>
       <div className="bgs">
         {bgSprings.map((props, i) => (
-          <animated.img key={i} className="bg" src={bgsArr[i]} alt="" style={props} />
+          <animated.img key={i} className="bg" src={bgsArr[i]} alt="" style={props} draggable={false} />
         ))}
       </div>
 
       <div className="cards" onClick={handleCardClick}>
         {cardSprings.map((props, i) => (
-          <animated.img key={i} className="card" src={cardsArr[i]} alt="" style={props} />
+          <animated.img key={i} className="card" src={cardsArr[i]} alt="" style={props} draggable={false} />
         ))}
       </div>
 
