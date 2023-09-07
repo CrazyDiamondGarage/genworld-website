@@ -7,8 +7,9 @@
 
 // in index.js
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { animated, useSprings } from "@react-spring/web";
+import { shuffle } from "txt-shuffle";
 import Footer from "@comp/Footer";
 import "@comp/firebase";
 import "./App.css";
@@ -20,6 +21,7 @@ const bgArr = [
   "/img/bg/bg_04.jpg",
   "/img/bg/bg_05.jpg"
 ];
+const NEXT_CARD_TIME = 2000;
 
 const cardsArr = [
   "/img/card/card_01.jpg",
@@ -34,13 +36,31 @@ const cardsArr = [
   "/img/card/card_05.jpg",
 ];
 
+const bgsArr = [
+  "/img/bg/bg_01.jpg",
+  "/img/bg/bg_02.jpg",
+  "/img/bg/bg_03.jpg",
+  "/img/bg/bg_04.jpg",
+  "/img/bg/bg_05.jpg",
+  "/img/bg/bg_01.jpg",
+  "/img/bg/bg_02.jpg",
+  "/img/bg/bg_03.jpg",
+  "/img/bg/bg_04.jpg",
+  "/img/bg/bg_05.jpg",
+];
+
+const slogansArr = ["I-Se-Kai", "CyberPunk", "Sci-Fi", "Dark Fantasy", "School Romance"];
+
 const App = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [cardIdx, setCardIdx] = useState(0);
+  const [bgIdx, setBgIdx] = useState(0);
+  const [sloganIdx, setSloganIdx] = useState(0);
+  const [slogan, setSlogan] = useState(slogansArr[0]);
 
   const cardSprings = useSprings(
     cardsArr.length,
     cardsArr.map((card, i) => {
-      const offset = i - activeIndex;
+      const offset = i - cardIdx;
       let adjustedIndex;
       let scale = 1;
       let opacity = 1;
@@ -72,42 +92,78 @@ const App = () => {
   );
 
   const bgSprings = useSprings(
-    bgArr.length,
-    bgArr.map((_, i) => ({
-      opacity: i === (activeIndex % bgArr.length) ? 1 : 0,
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%'
-    }))
+    bgsArr.length,
+    bgsArr.map((bg, i) => {
+      const offset = i - cardIdx;
+      let adjustedIndex;
+      let opacity = 1;
+
+      if (offset === 0) {
+        adjustedIndex = offset < 0 ? bgsArr.length + offset : offset;
+        opacity = 1 - 0.2 * adjustedIndex;
+      } else if (offset === -1) {
+        adjustedIndex = 0;
+        opacity = 0;
+      } else {
+        adjustedIndex = offset < 0 ? bgsArr.length + offset : offset;
+        opacity = 1.2 - 0.2 * adjustedIndex;
+      }
+
+      return {
+        zIndex: -adjustedIndex,
+        opacity: opacity,
+      };
+    })
   );
 
   const handleCardClick = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % cardsArr.length);
+    setBgIdx((prevIdx) => (prevIdx + 1) % bgsArr.length);
+    setCardIdx((prevIdx) => (prevIdx + 1) % cardsArr.length);
+    setSloganIdx((prevIdx) => (prevIdx + 1) % slogansArr.length);
   };
+
+  useEffect(() => {
+    const tid = setInterval(() => {
+      handleCardClick();
+    }, NEXT_CARD_TIME);
+
+    return () => clearInterval(tid);
+  }, []);
+
+  useEffect(() => {
+    shuffle({
+      text: slogansArr[sloganIdx],
+      fps: 20,
+      onUpdate: (output) => {
+        setSlogan(output);
+      },
+    });
+  }, [sloganIdx]);
 
   return (
     <>
-      {bgSprings.map((props, i) => (
-        <animated.img key={i} id="bg-front" src={bgArr[i]} alt="" style={props} />
-      ))}
+      <div className="bgs">
+        {bgSprings.map((props, i) => (
+          <animated.img key={i} className="bg" src={bgsArr[i]} alt="" style={props} draggable={false} />
+        ))}
+      </div>
 
       <div className="cards" onClick={handleCardClick}>
         {cardSprings.map((props, i) => (
-          <animated.img key={i} className="card" src={cardsArr[i]} alt="" style={props} />
+          <animated.img key={i} className="card" src={cardsArr[i]} alt="" style={props} draggable={false} />
         ))}
       </div>
 
       <div className="titles">
         <h2>Discover your unique</h2>
         <h1>
-          <span>I-Se-Kai</span>_
+          <span className={`card-slogan card-gradient-${sloganIdx}`}>{slogan}</span>
+          <span className="card-cursor blink">_</span>
         </h1>
         <h2>adventure gaming</h2>
         <h2>experience.</h2>
 
-        <div className="sub-title">
+        <div className={`sub-title card-gradient-${sloganIdx}`}>
           powered by <b>Generative AI</b>
         </div>
 

@@ -9,15 +9,18 @@ import React from "react";
 import packageJson from "@/../package.json";
 import "./Footer.css";
 
+console.debug(`Version: ${packageJson.version}`);
+
 const Footer = () => {
-  console.debug(`Version: ${packageJson.version}`);
   return (
     <div className="footer">
       <div className="footer-container">
-        <img id="footer-logo" src="/img/logo/logo_01.png" alt="" />
-        <img className="footer-line" src="/img/icon/cutting_line.png" alt="" />
+        <a href="https://genworld.io">
+          <img id="footer-logo" src="/img/logo/logo_01.png" alt="" draggable={false} />
+        </a>
+        <img className="footer-line" src="/img/icon/cutting_line.png" alt="" draggable={false} />
         <a id="footer-twitter" href="https://twitter.com/GenWorld2023" target="_blank">
-          <img src="/img/icon/icon_twitter.svg" alt="" />
+          <img src="/img/icon/icon_twitter.svg" alt="" draggable={false} />
           <h5>Twitter</h5>
         </a>
         <div id="footer-copyright">© 2023 GenWorld</div>

@@ -5,27 +5,42 @@
  * @author endaye
  */
 
- #root {
-  max-width: 1280px;
-  width: 100vw;
+#root {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-width: 100vw;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   text-align: center;
+  /* background-color: #0f0; */
 }
 
-#bg-front {
-  min-width: 100vw;
-  min-height: 100vh;
+.bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -200%;
+  right: -200%;
+  min-width: 100%;
+  min-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cards {
   position: fixed !important;
-  background-color: tomato; /* You might want to remove this once design is finalized */
-  margin: 0;
-  padding: 0;
-  top: calc(50vh - 360px - 24px);
-  right: 52%;
-  cursor: pointer; 
+  top: 0;
+  bottom: 0;
+  right: 50%;
+  /* background-color: tomato;  */
+  margin: auto;
+  width: 720px;
+  height: 720px;
+  cursor: pointer;
 }
 
 .card {
@@ -41,12 +56,16 @@
 
 .titles {
   position: fixed !important;
-  margin: 0;
-  padding: 0;
-  top: calc(50vh - 256px - 24px);
-  left: 52%;
+  top: 0;
+  bottom: 0;
+  left: 56%;
+  margin: auto;
+  padding: auto;
+  padding-top: 5%;
+  height: 720px;
   text-align: left !important;
   cursor: default;
+  /* background-color: tomato; */
 }
 
 .titles h2 {
@@ -74,11 +93,47 @@
   margin: 20px 0;
 }
 
-.titles h1 span {
+.card-gradient-0 {
   background: linear-gradient(90deg, #0ff 0%, #0f0 100%);
+}
+
+.card-gradient-1 {
+  background: linear-gradient(90deg, #fd93ff 0%, #56ffff 100%);
+}
+
+.card-gradient-2 {
+  background: linear-gradient(90deg, #ffde9d 0%, #0ff 100%);
+}
+
+.card-gradient-3 {
+  background: linear-gradient(90deg, #ffd493 0%, #ff5656 100%);
+}
+
+.card-gradient-4 {
+  background: linear-gradient(90deg, #fc70ff 0%, #ffd056 100%);
+}
+
+.card-slogan {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.blink {
+  animation: blinker 0.5s linear infinite;
+  font-weight: 700;
+}
+
+@keyframes blinker {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .sub-title {
@@ -92,7 +147,6 @@
   width: fit-content !important;
   margin-top: 40px;
   border-radius: 12px;
-  background: linear-gradient(90deg, #0ff 0%, #0f0 100%);
 }
 
 .btc-play {
@@ -108,4 +162,38 @@
   border: 2px solid rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(4px);
+}
+
+@media screen and (min-width: 1441px) {
+  :root {
+    zoom: 0.8;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  :root {
+    zoom: 0.6;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  :root {
+    zoom: 0.4;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    zoom: 0.5;
+  }
+
+  .cards {
+    display: none;
+  }
+
+  .titles {
+    left: 0;
+    right: 0;
+    width: 88%;
+  }
 }
