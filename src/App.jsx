@@ -21,7 +21,7 @@ const bgArr = [
   "/img/bg/bg_04.jpg",
   "/img/bg/bg_05.jpg"
 ];
-const NEXT_CARD_TIME = 2000;
+const NEXT_CARD_TIME = 3000;
 
 const cardsArr = [
   "/img/card/card_01.jpg",
@@ -56,6 +56,22 @@ const App = () => {
   const [bgIdx, setBgIdx] = useState(0);
   const [sloganIdx, setSloganIdx] = useState(0);
   const [slogan, setSlogan] = useState(slogansArr[0]);
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMouse({
+        x: e.clientX,
+        y: e.clientY
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    }
+  }, []);
 
   const cardSprings = useSprings(
     cardsArr.length,
@@ -97,10 +113,15 @@ const App = () => {
       const offset = i - cardIdx;
       let adjustedIndex;
       let opacity = 1;
+      let transform;
 
       if (offset === 0) {
         adjustedIndex = offset < 0 ? bgsArr.length + offset : offset;
         opacity = 1 - 0.2 * adjustedIndex;
+        // parallax effect calculation based on mouse position
+        const parallaxX = (mouse.x / window.innerWidth - 1) * 40;
+        const parallaxY = (mouse.y / window.innerHeight - 1) * 40;
+        transform = `translate(${-parallaxX}px, ${-parallaxY}px)`;
       } else if (offset === -1) {
         adjustedIndex = 0;
         opacity = 0;
@@ -112,6 +133,7 @@ const App = () => {
       return {
         zIndex: -adjustedIndex,
         opacity: opacity,
+        transform: transform
       };
     })
   );
