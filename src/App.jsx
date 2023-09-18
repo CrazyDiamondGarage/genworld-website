@@ -57,6 +57,7 @@ const App = () => {
   const [sloganIdx, setSloganIdx] = useState(0);
   const [slogan, setSlogan] = useState(slogansArr[0]);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const intervalRef = React.useRef();
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -142,14 +143,19 @@ const App = () => {
     setBgIdx((prevIdx) => (prevIdx + 1) % bgsArr.length);
     setCardIdx((prevIdx) => (prevIdx + 1) % cardsArr.length);
     setSloganIdx((prevIdx) => (prevIdx + 1) % slogansArr.length);
+
+    clearInterval(intervalRef.current);//rset interval
+    intervalRef.current = setInterval(() => {
+      handleCardClick();
+    }, NEXT_CARD_TIME);
   };
 
   useEffect(() => {
-    const tid = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       handleCardClick();
-    }, NEXT_CARD_TIME);
+    }, intervalRef);
 
-    return () => clearInterval(tid);
+    return () => clearInterval(intervalRef.current); // clear the interval when the component is unmounted
   }, []);
 
   useEffect(() => {
