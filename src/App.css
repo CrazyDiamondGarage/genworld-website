@@ -165,7 +165,13 @@
   backdrop-filter: blur(4px);
 }
 
-@media screen and (min-width: 1441px) {
+@media screen and (min-width: 1601px) {
+  :root {
+    zoom: 1;
+  }
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1600px) {
   :root {
     zoom: 0.8;
   }
