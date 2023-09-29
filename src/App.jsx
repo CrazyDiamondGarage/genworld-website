@@ -124,19 +124,20 @@ const App = () => {
       const parallaxX = (mouse.x / window.innerWidth - 0.5) * BG_PARALLAX_X_FACTOR;
       let transform = `translateX(${-parallaxX}px)`;
 
-      if (offset === 0) {
-        adjustedIndex = offset < 0 ? bgsArr.length + offset : offset;
+      // let transform;
+
+      adjustedIndex = offset < 0 ? bgsArr.length + offset : offset;
+
+      if (adjustedIndex === 0) {
         opacity = 1 - 0.2 * adjustedIndex;
-      } else if (offset === -1) {
-        adjustedIndex = 0;
-        opacity = 0;
+      } else if (adjustedIndex === 1) {
+        opacity = 1;
       } else {
-        adjustedIndex = offset < 0 ? bgsArr.length + offset : offset;
-        opacity = 1.2 - 0.2 * adjustedIndex;
+        opacity = 0;
       }
 
       return {
-        zIndex: -adjustedIndex,
+        zIndex: adjustedIndex * -1,
         opacity,
         transform,
       };
