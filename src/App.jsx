@@ -114,17 +114,16 @@ const App = () => {
   const bgSprings = useSprings(
     bgsArr.length,
     bgsArr.map((bg, i) => {
+      // parallax effect calculation based on mouse position
+      const parallaxX = (mouse.x / window.innerWidth - 0.5) * 100;
       const offset = i - cardIdx;
       let adjustedIndex;
       let opacity = 1;
-      let transform;
+      let transform = `translateX(${-parallaxX}px)`;
 
       if (offset === 0) {
         adjustedIndex = offset < 0 ? bgsArr.length + offset : offset;
         opacity = 1 - 0.2 * adjustedIndex;
-        // parallax effect calculation based on mouse position
-        const parallaxX = (mouse.x / window.innerWidth - 0.5) * 100;
-        transform = `translateX(${-parallaxX}px)`;
       } else if (offset === -1) {
         adjustedIndex = 0;
         opacity = 0;
@@ -135,8 +134,8 @@ const App = () => {
 
       return {
         zIndex: -adjustedIndex,
-        opacity: opacity,
-        transform: transform,
+        opacity,
+        transform,
       };
     })
   );
