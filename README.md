@@ -1,8 +1,12 @@
-# [GenWorld.io](https://genworld.io/)
+# [GenWorld.io][1]
 
 ### About Us
 
-GenWorld is an AI-driven RPG platform we are building. It supports UGC  templates, integrates multi-modal AI, and dynamically generates game narratives and visuals. This enables players to engage in gameplay and creation through simple interactions with AI.  Our team members come from Tencent, NetEase Games, and Lilith. The upcoming GenLegend is an AI card adventure game on the platform.
+[GenWorld][1] is an AI-driven RPG platform we are building. 
+It supports UGC templates, integrates multi-modal AI, and dynamically generates game narratives and visuals. 
+This enables players to engage in gameplay and creation through simple interactions with AI. 
+Our team members come from [Tencent][2], [NetEase Games][3], and [Lilith Games][4]. 
+The upcoming [GenLegend][5] is an AI card adventure game on the platform.
 
 ### Web Design
 
@@ -15,3 +19,10 @@ GenWorld is an AI-driven RPG platform we are building. It supports UGC  template
 ![4](https://github.com/CrazyDiamondGarage/genworld-website/assets/4829591/a970057d-e68f-499c-ae8f-63f0485ad8b6)
 
 ![5](https://github.com/CrazyDiamondGarage/genworld-website/assets/4829591/6e60a4e8-2eb1-4f59-853e-a10b7397fc38)
+
+
+[1]: https://genworld.io/
+[2]: https://www.tencent.com/
+[3]: https://www.neteasegames.com/
+[4]: https://www.lilith.com/
+[5]: https://legend.genworld.io/
