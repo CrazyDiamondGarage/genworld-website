@@ -1,11 +1,17 @@
-# genworld-website
+# [GenWorld.io](https://genworld.io/)
 
-![1](https://github.com/CrazyDiamondGarage/genworld-website/assets/4829591/d42c8a93-0286-4739-9fa7-49c63aa08de2)
+### About Us
 
-![2](https://github.com/CrazyDiamondGarage/genworld-website/assets/4829591/71f6f314-7b65-43de-a224-d6533f8ee131)
+GenWorld is an AI-driven RPG platform we are building. It supports UGC  templates, integrates multi-modal AI, and dynamically generates game narratives and visuals. This enables players to engage in gameplay and creation through simple interactions with AI.  Our team members come from Tencent, NetEase Games, and Lilith. The upcoming GenLegend is an AI card adventure game on the platform.
 
-![3](https://github.com/CrazyDiamondGarage/genworld-website/assets/4829591/fd6ceb21-6185-484c-b417-d7e608c50177)
+### Web Design
 
-![4](https://github.com/CrazyDiamondGarage/genworld-website/assets/4829591/dcf72f8c-3a2d-4a53-8dff-0533bcc8161a)
+![1](https://github.com/CrazyDiamondGarage/genworld-website/assets/4829591/4885aec5-ba98-4509-87fa-be5135036afc)
 
-![5](https://github.com/CrazyDiamondGarage/genworld-website/assets/4829591/dd8b3952-afd9-4f90-9d5a-451ba781db3e)
+![2](https://github.com/CrazyDiamondGarage/genworld-website/assets/4829591/7f944f52-acfa-4df9-b599-ac0d5746843d)
+
+![3](https://github.com/CrazyDiamondGarage/genworld-website/assets/4829591/18bb43e4-29c7-4b69-9bb7-3e03cc4c6cd1)
+
+![4](https://github.com/CrazyDiamondGarage/genworld-website/assets/4829591/a970057d-e68f-499c-ae8f-63f0485ad8b6)
+
+![5](https://github.com/CrazyDiamondGarage/genworld-website/assets/4829591/6e60a4e8-2eb1-4f59-853e-a10b7397fc38)
