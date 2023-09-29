@@ -18,7 +18,9 @@ const bgArr = ["/img/bg/bg_01.jpg", "/img/bg/bg_02.jpg", "/img/bg/bg_03.jpg", "/
 const NEXT_CARD_TIME = 3000;
 const CARD_OFFSET_X_DEFAULT = -20;
 const CARD_OFFSET_X_MIN = -22;
-const CARD_OFFSET_X_MAX = -16;
+const CARD_OFFSET_X_MAX = -8;
+const CARD_PARALLAX_X_FACTOR = -20;
+const BG_PARALLAX_X_FACTOR = 60;
 
 const cardsArr = [
   "/img/card/card_01.jpg",
@@ -83,7 +85,7 @@ const App = () => {
       let opacity = 1;
       let transform;
 
-      const parallaxX = (mouse.x / window.innerWidth - 0.5) * -16;
+      const parallaxX = (mouse.x / window.innerWidth - 0.5) * CARD_PARALLAX_X_FACTOR;
       const x = clamp(CARD_OFFSET_X_DEFAULT + parallaxX, CARD_OFFSET_X_MIN, CARD_OFFSET_X_MAX);
 
       if (offset === 0) {
@@ -115,10 +117,11 @@ const App = () => {
     bgsArr.length,
     bgsArr.map((bg, i) => {
       // parallax effect calculation based on mouse position
-      const parallaxX = (mouse.x / window.innerWidth - 0.5) * 100;
       const offset = i - cardIdx;
       let adjustedIndex;
       let opacity = 1;
+
+      const parallaxX = (mouse.x / window.innerWidth - 0.5) * BG_PARALLAX_X_FACTOR;
       let transform = `translateX(${-parallaxX}px)`;
 
       if (offset === 0) {
