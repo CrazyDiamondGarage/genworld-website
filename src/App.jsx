@@ -14,14 +14,11 @@ import Footer from "@comp/Footer";
 import "@comp/firebase";
 import "./App.css";
 
-const bgArr = [
-  "/img/bg/bg_01.jpg",
-  "/img/bg/bg_02.jpg",
-  "/img/bg/bg_03.jpg",
-  "/img/bg/bg_04.jpg",
-  "/img/bg/bg_05.jpg"
-];
+const bgArr = ["/img/bg/bg_01.jpg", "/img/bg/bg_02.jpg", "/img/bg/bg_03.jpg", "/img/bg/bg_04.jpg", "/img/bg/bg_05.jpg"];
 const NEXT_CARD_TIME = 3000;
+const CARD_OFFSET_X_DEFAULT = -20;
+const CARD_OFFSET_X_MIN = -22;
+const CARD_OFFSET_X_MAX = -16;
 
 const cardsArr = [
   "/img/card/card_01.jpg",
@@ -51,6 +48,9 @@ const bgsArr = [
 
 const slogansArr = ["I-Se-Kai", "CyberPunk", "Sci-Fi", "Dark Fantasy", "School Romance"];
 
+// Clamp number between two values with the following line:
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
 const App = () => {
   const [cardIdx, setCardIdx] = useState(0);
   const [bgIdx, setBgIdx] = useState(0);
@@ -63,15 +63,15 @@ const App = () => {
     const handleMouseMove = (e) => {
       setMouse({
         x: e.clientX,
-        y: e.clientY
+        y: e.clientY,
       });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    }
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   const cardSprings = useSprings(
@@ -83,27 +83,30 @@ const App = () => {
       let opacity = 1;
       let transform;
 
+      const parallaxX = (mouse.x / window.innerWidth - 0.5) * -16;
+      const x = clamp(CARD_OFFSET_X_DEFAULT + parallaxX, CARD_OFFSET_X_MIN, CARD_OFFSET_X_MAX);
+
       if (offset === 0) {
         adjustedIndex = offset < 0 ? cardsArr.length + offset : offset;
         scale = 1 - 0.1 * adjustedIndex;
         opacity = 1 - 0.2 * adjustedIndex;
-        transform = `translateX(${adjustedIndex * -80}px) scale(${scale})`;
+        transform = `translateX(${adjustedIndex * x * 4}px) scale(${scale})`;
       } else if (offset === -1) {
         // This is the card that will come in from the left
         adjustedIndex = 0;
         opacity = 0;
-        transform = `translateX(${adjustedIndex * -200}px) scale(${scale})`;
+        transform = `translateX(${adjustedIndex * x * 5}px) scale(${scale})`;
       } else {
         adjustedIndex = offset < 0 ? cardsArr.length + offset : offset;
         scale = 1 - 0.1 * adjustedIndex;
         opacity = 1.2 - 0.2 * adjustedIndex;
-        transform = `translateX(${adjustedIndex * -80}px) scale(${scale})`;
+        transform = `translateX(${adjustedIndex * x * 4}px) scale(${scale})`;
       }
 
       return {
-        transform: transform,
+        transform,
         zIndex: -adjustedIndex,
-        opacity: opacity,
+        opacity,
       };
     })
   );
@@ -120,9 +123,8 @@ const App = () => {
         adjustedIndex = offset < 0 ? bgsArr.length + offset : offset;
         opacity = 1 - 0.2 * adjustedIndex;
         // parallax effect calculation based on mouse position
-        const parallaxX = (mouse.x / window.innerWidth - 1) * 40;
-        const parallaxY = (mouse.y / window.innerHeight - 1) * 40;
-        transform = `translate(${-parallaxX}px, ${-parallaxY}px)`;
+        const parallaxX = (mouse.x / window.innerWidth - 0.5) * 100;
+        transform = `translateX(${-parallaxX}px)`;
       } else if (offset === -1) {
         adjustedIndex = 0;
         opacity = 0;
@@ -134,7 +136,7 @@ const App = () => {
       return {
         zIndex: -adjustedIndex,
         opacity: opacity,
-        transform: transform
+        transform: transform,
       };
     })
   );
@@ -144,7 +146,7 @@ const App = () => {
     setCardIdx((prevIdx) => (prevIdx + 1) % cardsArr.length);
     setSloganIdx((prevIdx) => (prevIdx + 1) % slogansArr.length);
 
-    clearInterval(intervalRef.current);//rset interval
+    clearInterval(intervalRef.current); //rset interval
     intervalRef.current = setInterval(() => {
       handleCardClick();
     }, NEXT_CARD_TIME);
