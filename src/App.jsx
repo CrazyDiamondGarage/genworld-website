@@ -14,7 +14,13 @@ import Footer from "@comp/Footer";
 import "@comp/firebase";
 import "./App.css";
 
-const bgArr = ["/img/bg/bg_01.jpg", "/img/bg/bg_02.jpg", "/img/bg/bg_03.jpg", "/img/bg/bg_04.jpg", "/img/bg/bg_05.jpg"];
+const bgArr = [
+  "/img/bg/bg_01.jpg",
+  "/img/bg/bg_02.jpg",
+  "/img/bg/bg_03.jpg",
+  "/img/bg/bg_04.jpg",
+  "/img/bg/bg_05.jpg",
+];
 const NEXT_CARD_TIME = 3000;
 const CARD_OFFSET_X_DEFAULT = -20;
 const CARD_OFFSET_X_MIN = -22;
@@ -48,7 +54,13 @@ const bgsArr = [
   "/img/bg/bg_05.jpg",
 ];
 
-const slogansArr = ["I-Se-Kai", "CyberPunk", "Sci-Fi", "Dark Fantasy", "School Romance"];
+const slogansArr = [
+  "I-Se-Kai",
+  "CyberPunk",
+  "Sci-Fi",
+  "Dark Fantasy",
+  "School Romance",
+];
 
 // Clamp number between two values with the following line:
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
@@ -85,8 +97,13 @@ const App = () => {
       let opacity = 1;
       let transform;
 
-      const parallaxX = (mouse.x / window.innerWidth - 0.5) * CARD_PARALLAX_X_FACTOR;
-      const x = clamp(CARD_OFFSET_X_DEFAULT + parallaxX, CARD_OFFSET_X_MIN, CARD_OFFSET_X_MAX);
+      const parallaxX =
+        (mouse.x / window.innerWidth - 0.5) * CARD_PARALLAX_X_FACTOR;
+      const x = clamp(
+        CARD_OFFSET_X_DEFAULT + parallaxX,
+        CARD_OFFSET_X_MIN,
+        CARD_OFFSET_X_MAX
+      );
 
       if (offset === 0) {
         adjustedIndex = offset < 0 ? cardsArr.length + offset : offset;
@@ -121,7 +138,8 @@ const App = () => {
       let adjustedIndex;
       let opacity = 1;
 
-      const parallaxX = (mouse.x / window.innerWidth - 0.5) * BG_PARALLAX_X_FACTOR;
+      const parallaxX =
+        (mouse.x / window.innerWidth - 0.5) * BG_PARALLAX_X_FACTOR;
       let transform = `translateX(${-parallaxX}px)`;
 
       // let transform;
@@ -143,6 +161,16 @@ const App = () => {
       };
     })
   );
+
+  const [animationPaused, setAnimationPaused] = useState(false);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      setAnimationPaused(true);
+    } else {
+      setAnimationPaused(true);
+    }
+  });
 
   const handleCardClick = () => {
     setBgIdx((prevIdx) => (prevIdx + 1) % bgsArr.length);
@@ -177,20 +205,39 @@ const App = () => {
     <>
       <div className="bgs">
         {bgSprings.map((props, i) => (
-          <animated.img key={i} className="bg" src={bgsArr[i]} alt="" style={props} draggable={false} />
+          <animated.img
+            key={i}
+            className="bg"
+            src={bgsArr[i]}
+            alt=""
+            style={{
+              ...props,
+              pointerEvents: animationPaused ? "none" : "auto",
+            }}
+            draggable={false}
+          />
         ))}
       </div>
 
       <div className="cards" onClick={handleCardClick}>
         {cardSprings.map((props, i) => (
-          <animated.img key={i} className="card" src={cardsArr[i]} alt="" style={props} draggable={false} />
+          <animated.img
+            key={i}
+            className="card"
+            src={cardsArr[i]}
+            alt=""
+            style={props}
+            draggable={false}
+          />
         ))}
       </div>
 
       <div className="titles">
         <h2>Discover your unique</h2>
         <h1>
-          <span className={`card-slogan card-gradient-${sloganIdx}`}>{slogan}</span>
+          <span className={`card-slogan card-gradient-${sloganIdx}`}>
+            {slogan}
+          </span>
           <span className="card-cursor blink">_</span>
         </h1>
         <h2>adventure gaming</h2>
