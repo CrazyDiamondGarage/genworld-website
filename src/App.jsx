@@ -14,7 +14,6 @@ import Footer from "@comp/Footer";
 import "@comp/firebase";
 import "./App.css";
 
-const bgArr = ["/img/bg/bg_01.jpg", "/img/bg/bg_02.jpg", "/img/bg/bg_03.jpg", "/img/bg/bg_04.jpg", "/img/bg/bg_05.jpg"];
 const NEXT_CARD_TIME = 3000;
 const CARD_OFFSET_X_DEFAULT = -20;
 const CARD_OFFSET_X_MIN = -22;
@@ -224,7 +223,7 @@ const App = () => {
           powered by <b>Generative AI</b>
         </div>
 
-        <div className="btc-play" onClick={handlePlayClick}>
+        <div className={`btc-play btc-play-gradient-${sloganIdx}`} onClick={handlePlayClick}>
           Play online
         </div>
       </div>

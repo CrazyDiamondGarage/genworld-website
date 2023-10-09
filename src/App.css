@@ -169,7 +169,26 @@
 .btc-play:hover {
   color: rgba(255, 255, 255, 1);
   border: 2px solid rgba(255, 255, 255, 0.8);
-  background: rgba(255, 255, 255, 0.3);
+}
+
+.btc-play-gradient-0 {
+  background: linear-gradient(90deg, rgb(0, 255, 255) 0%, rgb(0, 255, 0) 100%);
+}
+
+.btc-play-gradient-1 {
+  background: linear-gradient(90deg, rgb(253, 148, 255) 0%, rgb(86, 255, 255) 100%);
+}
+
+.btc-play-gradient-2 {
+  background: linear-gradient(90deg, rgb(255, 222, 157) 0%, rgb(0, 255, 255) 100%);
+}
+
+.btc-play-gradient-3 {
+  background: linear-gradient(90deg, rgb(255, 212, 147) 0%, rgb(255, 86, 86) 100%);
+}
+
+.btc-play-gradient-4 {
+  background: linear-gradient(90deg, rgb(252, 112, 255) 0%, rgb(255, 208, 86) 100%);
 }
 
 @media screen and (min-width: 1601px) {
