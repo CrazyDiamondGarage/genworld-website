@@ -151,18 +151,25 @@
 }
 
 .btc-play {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 48px;
   font-weight: 400;
   line-height: 150%;
   width: fit-content !important;
   margin-top: 60px;
   padding: 16px 36px;
-  cursor: not-allowed;
+  cursor: pointer;
   border-radius: 24px;
   border: 2px solid rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(4px);
+  transition: all 0.5s ease-in-out;
+}
+
+.btc-play:hover {
+  color: rgba(255, 255, 255, 1);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 @media screen and (min-width: 1601px) {
