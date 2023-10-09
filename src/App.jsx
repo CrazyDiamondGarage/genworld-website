@@ -223,7 +223,7 @@ const App = () => {
           powered by <b>Generative AI</b>
         </div>
 
-        <div className={`btc-play btc-play-gradient-${sloganIdx}`} onClick={handlePlayClick}>
+        <div className={`btn-play btn-play-gradient-${sloganIdx}`} onClick={handlePlayClick}>
           Play online
         </div>
       </div>
