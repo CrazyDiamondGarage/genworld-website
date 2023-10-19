@@ -12,13 +12,13 @@
   background: rgba(0, 0, 0, 0.1);
   background-blend-mode: soft-light;
   backdrop-filter: blur(24px);
-  height: 84px;
+  height: calc(84px * var(--zoom));
   width: 100%;
 }
 
 .footer-container {
   height: 100%;
-  margin: 0 150px;
+  margin: 0 calc(150px * var(--zoom));
 
   /* background-color: mediumaquamarine; */
   display: flex;
@@ -30,31 +30,32 @@
 
 #footer-logo {
   position: relative;
-  height: 42px;
+  margin-top: calc(8px * var(--zoom));
+  height: calc(42px * var(--zoom));
 }
 
 .footer-line {
-  height: 28px;
-  margin: 10px 36px;
+  height: calc(28px * var(--zoom));
+  margin: calc(10px * var(--zoom)) calc(36px * var(--zoom));
 }
 
 #footer-twitter {
   display: flex;
   flex-direction: row;
 
-  padding: 21px 0px;
+  padding: calc(21px * var(--zoom)) 0px;
   align-items: center;
-  gap: 12px;
+  gap: calc(12px * var(--zoom));
   text-decoration: none;
 }
 
 #footer-twitter img {
-  height: 38px;
+  height: calc(38px * var(--zoom));
 }
 
 #footer-twitter h5 {
   color: #fff;
-  font-size: 32px;
+  font-size: calc(32px * var(--zoom));
   font-style: normal;
   font-weight: 500;
   line-height: 80%; /* 25.6px */
@@ -64,10 +65,22 @@
   flex-grow: 1;
   text-align: right;
   color: #fff;
-  font-size: 24px;
+  font-size: calc(24px * var(--zoom));
   font-weight: 700;
   line-height: 80%; /* 19.2px */
   cursor: default;
+}
+
+@media screen and (min-width: 1601px) {
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1600px) {
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
 }
 
 @media screen and (max-width: 768px) {
