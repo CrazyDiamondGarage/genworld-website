@@ -84,8 +84,11 @@ const App = () => {
       let opacity = 1;
       let transform;
 
+      const innerWidth = window.innerWidth;
+      const factor = innerWidth / 1440;
+
       const parallaxX = (mouse.x / window.innerWidth - 0.5) * CARD_PARALLAX_X_FACTOR;
-      const x = clamp(CARD_OFFSET_X_DEFAULT + parallaxX, CARD_OFFSET_X_MIN, CARD_OFFSET_X_MAX);
+      const x = clamp(CARD_OFFSET_X_DEFAULT + parallaxX, CARD_OFFSET_X_MIN, CARD_OFFSET_X_MAX) * factor;
 
       if (offset === 0) {
         adjustedIndex = offset < 0 ? cardsArr.length + offset : offset;
