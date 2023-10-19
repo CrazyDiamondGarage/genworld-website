@@ -5,6 +5,10 @@
  * @author endaye
  */
 
+:root {
+  --zoom: 1;
+}
+
 #root {
   position: fixed;
   top: 0;
@@ -39,8 +43,8 @@
   right: 50%;
   /* background-color: tomato;  */
   margin: auto;
-  width: 720px;
-  height: 720px;
+  width: calc(720px * var(--zoom));
+  height: calc(720px * var(--zoom));
   cursor: pointer;
 }
 
@@ -48,7 +52,7 @@
   position: absolute !important;
   right: 0;
   top: 0;
-  border-radius: 24px;
+  border-radius: calc(24px * var(--zoom));
   border: 1px solid #fff;
   box-shadow: 0px 0px 72px 0px rgba(0, 0, 0, 0.7), 0px 0px 12px 0px rgba(0, 0, 0, 0.35);
   will-change: transform;
@@ -70,28 +74,30 @@
 }
 
 .titles h2 {
-  border-radius: 12px;
+  border-radius: calc(12px * var(--zoom));
   background: #000;
-  padding-left: 20px;
+  padding-left: calc(20px * var(--zoom));
+  padding-right: calc(10px * var(--zoom));
   color: #fff;
-  font-size: 56px;
+  font-size: calc(56px * var(--zoom));
   font-weight: 500;
   line-height: 100%;
   width: fit-content !important;
-  margin: 20px 0;
+  margin: calc(20px * var(--zoom)) 0;
 }
 
 .titles h1 {
-  border-radius: 12px;
+  border-radius: calc(12px * var(--zoom));
   background: #000;
-  padding-left: 20px;
+  padding-left: calc(20px * var(--zoom));
+  padding-right: calc(10px * var(--zoom));
   color: #fff;
-  font-size: 72px;
+  font-size: calc(72px * var(--zoom));
   font-weight: 500;
   line-height: 100%;
   text-align: left !important;
   width: fit-content !important;
-  margin: 20px 0;
+  margin: calc(20px * var(--zoom)) 0;
 }
 
 .card-gradient-0 {
@@ -138,35 +144,35 @@
 }
 
 .sub-title {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: calc(20px * var(--zoom));
+  padding-right: calc(20px * var(--zoom));
   color: #000;
-  font-size: 24px;
+  font-size: calc(24px * var(--zoom));
   font-style: italic;
   font-weight: 400;
   line-height: 200%;
   width: fit-content !important;
-  margin-top: 40px;
-  border-radius: 12px;
+  margin-top: calc(40px * var(--zoom));
+  border-radius: calc(12px * var(--zoom));
 }
 
 .btn-play {
   color: rgba(255, 255, 255, 1);
-  font-size: 48px;
+  font-size: calc(48px * var(--zoom));
   font-weight: 600;
   line-height: 150%;
   width: fit-content !important;
-  margin-top: 60px;
-  padding: 16px 36px;
+  margin-top: calc(60px * var(--zoom));
+  padding: calc(16px * var(--zoom)) calc(36px * var(--zoom));
   cursor: pointer;
-  border-radius: 24px;
-  border: 4px solid rgba(255, 255, 255, 0.64);
+  border-radius: calc(24px * var(--zoom));
+  border: calc(4px * var(--zoom)) solid rgba(255, 255, 255, 0.64);
   backdrop-filter: blur(4px);
   transition: all 0.5s ease;
 }
 
 .btn-play:hover {
-  border: 4px solid rgba(255, 255, 255, 1);
+  border: calc(4px * var(--zoom)) solid rgba(255, 255, 255, 1);
   color: rgba(255, 255, 255, 64);
 }
 
@@ -197,31 +203,31 @@
 
 @media screen and (min-width: 1601px) {
   :root {
-    zoom: 1;
+    --zoom: 1;
   }
 }
 
 @media screen and (min-width: 1441px) and (max-width: 1600px) {
   :root {
-    zoom: 0.8;
+    --zoom: 0.8;
   }
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1440px) {
   :root {
-    zoom: 0.6;
+    --zoom: 0.6;
   }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   :root {
-    zoom: 0.4;
+    --zoom: 0.4;
   }
 }
 
 @media screen and (max-width: 768px) {
   :root {
-    zoom: 0.5;
+    --zoom: 0.5;
   }
 
   .cards {
