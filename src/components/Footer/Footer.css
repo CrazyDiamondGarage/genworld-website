@@ -39,21 +39,25 @@
   margin: calc(10px * var(--zoom)) calc(36px * var(--zoom));
 }
 
-#footer-twitter {
+.footer-social {
   display: flex;
   flex-direction: row;
 
-  padding: calc(21px * var(--zoom)) 0px;
+  padding: calc(21px * var(--zoom)) calc(16px * var(--zoom));
   align-items: center;
   gap: calc(12px * var(--zoom));
   text-decoration: none;
 }
 
-#footer-twitter img {
-  height: calc(38px * var(--zoom));
+.footer-social h4 {
+  color: #fff;
+  font-size: calc(36px * var(--zoom));
+  font-style: normal;
+  font-weight: 500;
+  line-height: 80%; /* 25.6px */
 }
 
-#footer-twitter h5 {
+.footer-social h5 {
   color: #fff;
   font-size: calc(32px * var(--zoom));
   font-style: normal;
@@ -86,5 +90,9 @@
 @media screen and (max-width: 768px) {
   .footer-container {
     margin: 0 20px;
+  }
+
+  .footer-social h5 {
+    display: none;
   }
 }
