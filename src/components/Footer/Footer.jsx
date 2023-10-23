@@ -39,10 +39,10 @@ const Footer = () => {
         <a className="footer-social" href="mailto:contact@genworld.io" target="_blank">
           <h5>Contact</h5>
         </a>
-        <a className="footer-social" href="#" target="_blank">
+        <a className="footer-social" href="https://genworld.notion.site/genworld/GenWorld-Terms-of-Service-c4a176057078458d9f3d3f25fa4f6d72" target="_blank">
           <h5>Terms of Service</h5>
         </a>
-        <a className="footer-social" href="#" target="_blank">
+        <a className="footer-social" href="https://genworld.notion.site/GenWorld-Privacy-7c7274afce384cc29aabb95f941cfa1f" target="_blank">
           <h5>Privacy Policy</h5>
         </a>
         <div id="footer-copyright">© 2023 Crazy Diamond</div>
