@@ -32,7 +32,7 @@ const Footer = () => {
           </h4>
           <h5>Discord</h5>
         </a>
-        <div id="footer-copyright">© 2023 GenWorld</div>
+        <div id="footer-copyright">© 2023 Crazy Diamond</div>
       </div>
     </div>
   );
