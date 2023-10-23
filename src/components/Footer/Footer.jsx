@@ -32,6 +32,10 @@ const Footer = () => {
           </h4>
           <h5>Discord</h5>
         </a>
+        <img className="footer-line" src="/img/icon/cutting_line.png" alt="" draggable={false} />
+        <a className="footer-social" href="https://twitter.com/GenWorld2023" target="_blank">
+          <h5>About Us</h5>
+        </a>
         <div id="footer-copyright">© 2023 Crazy Diamond</div>
       </div>
     </div>
