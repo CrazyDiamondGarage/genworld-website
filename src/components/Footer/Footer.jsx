@@ -39,6 +39,9 @@ const Footer = () => {
         <a className="footer-social" href="mailto:contact@genworld.io" target="_blank">
           <h5>Contact</h5>
         </a>
+        <a className="footer-social" href="#" target="_blank">
+          <h5>Terms of Service</h5>
+        </a>
         <div id="footer-copyright">© 2023 Crazy Diamond</div>
       </div>
     </div>
