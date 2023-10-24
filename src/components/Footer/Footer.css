@@ -51,7 +51,7 @@
 
 .footer-social h4 {
   color: #fff;
-  font-size: calc(32px * var(--zoom));
+  font-size: calc(24px * var(--zoom));
   font-style: normal;
   font-weight: 500;
   line-height: 80%; /* 25.6px */
@@ -59,7 +59,7 @@
 
 .footer-social h5 {
   color: #fff;
-  font-size: calc(22px * var(--zoom));
+  font-size: calc(18px * var(--zoom));
   font-style: normal;
   font-weight: 500;
   line-height: 80%; /* 25.6px */
@@ -69,7 +69,7 @@
   flex-grow: 1;
   text-align: right;
   color: #fff;
-  font-size: calc(24px * var(--zoom));
+  font-size: calc(18px * var(--zoom));
   font-weight: 700;
   line-height: 80%; /* 19.2px */
   cursor: default;
