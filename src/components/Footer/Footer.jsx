@@ -45,7 +45,7 @@ const Footer = () => {
         <a className="footer-social" href="https://genworld.notion.site/GenWorld-Privacy-7c7274afce384cc29aabb95f941cfa1f" target="_blank">
           <h5>Privacy Policy</h5>
         </a>
-        <div id="footer-copyright">© 2023 CRAZY DIAMOND PTE. LTD. </div>
+        <div id="footer-copyright">© 2023 CRAZY DIAMOND </div>
       </div>
     </div>
   );
