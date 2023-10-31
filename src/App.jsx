@@ -47,7 +47,13 @@ const bgsArr = [
   "/img/bg/bg_05.jpg",
 ];
 
-const slogansArr = ["I-Se-Kai", "CyberPunk", "Sci-Fi", "Dark Fantasy", "School Romance"];
+const slogansArr = [
+  "I-Se-Kai",
+  "CyberPunk",
+  "Sci-Fi",
+  "Dark Fantasy",
+  "School Romance",
+];
 
 // Clamp number between two values with the following line:
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
@@ -75,6 +81,24 @@ const App = () => {
     };
   }, []);
 
+  const [animationPaused, setAnimationPaused] = useState(false);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        setAnimationPaused(true);
+      } else {
+        setAnimationPaused(false);
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
   const cardSprings = useSprings(
     cardsArr.length,
     cardsArr.map((card, i) => {
@@ -87,8 +111,14 @@ const App = () => {
       const innerWidth = window.innerWidth;
       const factor = innerWidth / 1440;
 
-      const parallaxX = (mouse.x / window.innerWidth - 0.5) * CARD_PARALLAX_X_FACTOR;
-      const x = clamp(CARD_OFFSET_X_DEFAULT + parallaxX, CARD_OFFSET_X_MIN, CARD_OFFSET_X_MAX) * factor;
+      const parallaxX =
+        (mouse.x / window.innerWidth - 0.5) * CARD_PARALLAX_X_FACTOR;
+      const x =
+        clamp(
+          CARD_OFFSET_X_DEFAULT + parallaxX,
+          CARD_OFFSET_X_MIN,
+          CARD_OFFSET_X_MAX
+        ) * factor;
 
       if (offset === 0) {
         adjustedIndex = offset < 0 ? cardsArr.length + offset : offset;
@@ -115,18 +145,16 @@ const App = () => {
     })
   );
 
-  const bgSprings = useSprings(
+  const [bgSprings, api] = useSprings(
     bgsArr.length,
-    bgsArr.map((bg, i) => {
-      // parallax effect calculation based on mouse position
+    (i) => {
       const offset = i - cardIdx;
       let adjustedIndex;
       let opacity = 1;
 
-      const parallaxX = (mouse.x / window.innerWidth - 0.5) * BG_PARALLAX_X_FACTOR;
+      const parallaxX =
+        (mouse.x / window.innerWidth - 0.5) * BG_PARALLAX_X_FACTOR;
       let transform = `translateX(${-parallaxX}px)`;
-
-      // let transform;
 
       adjustedIndex = offset < 0 ? bgsArr.length + offset : offset;
 
@@ -139,29 +167,23 @@ const App = () => {
       }
 
       return {
-        zIndex: adjustedIndex * -1,
-        opacity,
-        transform,
+        to: {
+          zIndex: adjustedIndex * -1,
+          opacity,
+          transform,
+        },
+        pause: animationPaused,
       };
-    })
+    },
+    [cardIdx, bgsArr, animationPaused]
   );
 
-  const [animationPaused, setAnimationPaused] = useState(false);
-
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      setAnimationPaused(true);
-    } else {
-      setAnimationPaused(true);
-    }
-  });
-
-  const handleCardClick = () => {
+  const handleCardClick = (userClick) => {
     setBgIdx((prevIdx) => (prevIdx + 1) % bgsArr.length);
     setCardIdx((prevIdx) => (prevIdx + 1) % cardsArr.length);
     setSloganIdx((prevIdx) => (prevIdx + 1) % slogansArr.length);
 
-    clearInterval(intervalRef.current); //rset interval
+    clearInterval(intervalRef.current); //reset interval
     intervalRef.current = setInterval(() => {
       handleCardClick();
     }, NEXT_CARD_TIME);
@@ -172,12 +194,16 @@ const App = () => {
   };
 
   useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      handleCardClick();
-    }, intervalRef);
+    if (animationPaused && intervalRef.current) {
+      clearInterval(intervalRef.current);
+    } else {
+      intervalRef.current = setInterval(() => {
+        handleCardClick();
+      }, NEXT_CARD_TIME);
+    }
 
     return () => clearInterval(intervalRef.current); // clear the interval when the component is unmounted
-  }, []);
+  }, [animationPaused, intervalRef.current]);
 
   useEffect(() => {
     shuffle({
@@ -192,31 +218,53 @@ const App = () => {
   return (
     <>
       <div className="bgs">
-        {bgSprings.map((props, i) => (
-          <animated.img
-            key={i}
-            className="bg"
-            src={bgsArr[i]}
-            alt=""
-            style={{
-              ...props,
-              pointerEvents: animationPaused ? "none" : "auto",
-            }}
-            draggable={false}
-          />
-        ))}
+        <span
+          style={{
+            zIndex: 999,
+            fontWeight: "600",
+            fontSize: "3rem",
+            position: "fixed",
+            top: "20px",
+            left: "20px",
+          }}
+        >
+          {String(animationPaused)}
+        </span>
+        {bgSprings.map((props, i) => {
+          return (
+            <animated.img
+              key={i}
+              className="bg"
+              src={bgsArr[i]}
+              style={{
+                ...props,
+                // pointerEvents: animationPaused ? "none" : "auto",
+              }}
+              draggable={false}
+            />
+          );
+        })}
       </div>
 
       <div className="cards" onClick={handleCardClick}>
         {cardSprings.map((props, i) => (
-          <animated.img key={i} className="card" src={cardsArr[i]} alt="" style={props} draggable={false} />
+          <animated.img
+            key={i}
+            className="card"
+            src={cardsArr[i]}
+            alt=""
+            style={props}
+            draggable={false}
+          />
         ))}
       </div>
 
       <div className="titles">
         <h2>Discover your unique</h2>
         <h1>
-          <span className={`card-slogan card-gradient-${sloganIdx}`}>{slogan}</span>
+          <span className={`card-slogan card-gradient-${sloganIdx}`}>
+            {slogan}
+          </span>
           <span className="card-cursor blink">_</span>
         </h1>
         <h2>adventure gaming</h2>
@@ -226,7 +274,10 @@ const App = () => {
           powered by <b>Generative AI</b>
         </div>
 
-        <div className={`btn-play btn-play-gradient-${sloganIdx}`} onClick={handlePlayClick}>
+        <div
+          className={`btn-play btn-play-gradient-${sloganIdx}`}
+          onClick={handlePlayClick}
+        >
           Play online
         </div>
       </div>
