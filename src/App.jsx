@@ -218,18 +218,6 @@ const App = () => {
   return (
     <>
       <div className="bgs">
-        <span
-          style={{
-            zIndex: 999,
-            fontWeight: "600",
-            fontSize: "3rem",
-            position: "fixed",
-            top: "20px",
-            left: "20px",
-          }}
-        >
-          {String(animationPaused)}
-        </span>
         {bgSprings.map((props, i) => {
           return (
             <animated.img
