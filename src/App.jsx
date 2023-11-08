@@ -10,9 +10,13 @@
 import React, { useEffect, useState } from "react";
 import { animated, useSprings } from "@react-spring/web";
 import { shuffle } from "txt-shuffle";
+import { Box, Drawer, Typography } from "@mui/material";
 import Footer from "@comp/Footer";
+import Lottie from "lottie-react";
+import slideUp from "./assets/lottie/slideUp.json";
 import "@comp/firebase";
 import "./App.css";
+import NewsItem from "./components/NewsItem";
 
 const NEXT_CARD_TIME = 3000;
 const CARD_OFFSET_X_DEFAULT = -20;
@@ -62,6 +66,7 @@ const App = () => {
   const [cardIdx, setCardIdx] = useState(0);
   const [bgIdx, setBgIdx] = useState(0);
   const [sloganIdx, setSloganIdx] = useState(0);
+  const [openRecentNews, setOpenRecentNews] = useState(false);
   const [slogan, setSlogan] = useState(slogansArr[0]);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const intervalRef = React.useRef();
@@ -269,7 +274,88 @@ const App = () => {
           Play online
         </div>
       </div>
-
+      <Box
+        sx={{
+          width: "24px",
+          position: "fixed",
+          bottom: "calc(84px * var(--zoom))",
+          left: "50%",
+          cursor: "pointer",
+        }}
+        onClick={() => {
+          setOpenRecentNews(true);
+        }}
+      >
+        <Lottie animationData={slideUp} loop={true} />
+      </Box>
+      <Drawer
+        anchor="bottom"
+        open={openRecentNews}
+        onClose={() => setOpenRecentNews(false)}
+        sx={{
+          "& .MuiDrawer-paper": {
+            borderRadius: "24px 24px 0px 0px",
+            background: "rgba(31, 36, 51, 0.98)",
+            color: "#fff",
+            p: "48px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          },
+        }}
+      >
+        <Box
+          sx={{
+            width: "90%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            justifyContent: "center",
+          }}
+        >
+          <Box
+            sx={{
+              width: "fit-content",
+              fontSize: "3rem",
+              fontWeight: 700,
+              background: "linear-gradient(90deg, #00FFFF 0%, #00FF00 100%);",
+              backgroundClip: "text",
+              "-webkit-background-clip": "text",
+              "-webkit-text-fill-color": "transparent",
+            }}
+          >
+            Recent News
+          </Box>
+          <Box>
+            GenWorld is an AI-driven gaming platform. It supports UGC templates,
+            multimodal AI integration, and dynamic story and visual creation,
+            allowing players to easily play and create games through AI. To get
+            more latest content, please{" "}
+            <a
+              href=""
+              style={{
+                color: "#00FF00",
+              }}
+            >
+              <span>join our discord</span>
+            </a>
+            .
+          </Box>
+          {/* News List */}
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              columnGap: "24px",
+              mt: "48px",
+            }}
+          >
+            <NewsItem />
+            <NewsItem />
+            <NewsItem />
+          </Box>
+        </Box>
+      </Drawer>
       <Footer />
     </>
   );
