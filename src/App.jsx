@@ -350,9 +350,24 @@ const App = () => {
               mt: "48px",
             }}
           >
-            <NewsItem />
-            <NewsItem />
-            <NewsItem />
+            <NewsItem 
+              title="Title1" 
+              dateTime="2023 / 11 / 01" 
+              text="Text 1..." 
+              image="ImageURL1" 
+            />
+            <NewsItem 
+              title="Title2" 
+              dateTime="2023 / 11 / 02" 
+              text="Text 2..." 
+              image="ImageURL2" 
+            />
+            <NewsItem 
+              title="Title3" 
+              dateTime="2023 / 11 / 03" 
+              text="Text 3..." 
+              image="ImageURL3" 
+            />
           </Box>
         </Box>
       </Drawer>

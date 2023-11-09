@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-export default function NewsItem() {
+export default function NewsItem({ title, dateTime, text, image }) {
   return (
     <Box
       sx={{
@@ -13,14 +13,13 @@ export default function NewsItem() {
         height: "516px",
       }}
     >
-      {/* Title */}
       <Box
         sx={{
           fontSize: "1.5rem",
           fontWeight: 700,
         }}
       >
-        Lorem ipsum dolor sit amet, ei vix atqui nominati sadipscing.
+        {title}
       </Box>
       {/* Post Time */}
       <Box
@@ -30,7 +29,7 @@ export default function NewsItem() {
           mt: "6px",
         }}
       >
-        2023 / 11 / 04
+        {dateTime}
       </Box>
 
       {/* Content */}
@@ -41,10 +40,7 @@ export default function NewsItem() {
           fontSize: "1rem",
         }}
       >
-        Ius an altera graecis iudicabit, an eos oporteat suavitate adolescens.
-        In simul iudicabit assentior his. Partem apeirian insolens eos ut, at
-        vidit harum impetus sit, ne nonumy deserunt vel. Duo et velit expetenda,
-        per ne nisl eirmod reprimique.
+        {text}
       </Box>
 
       {/* Image */}
@@ -56,7 +52,7 @@ export default function NewsItem() {
         }}
       >
         <img
-          src=""
+          src={image}
           height="260px"
           style={{
             borderRadius: "8px",
