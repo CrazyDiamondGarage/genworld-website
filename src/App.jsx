@@ -105,7 +105,6 @@ const App = () => {
       // 如果是，则重定向到 notion
       window.location.href = 'https://genworld.notion.site/Join-What-if-AI-Generated-Story-Contest-Prize-Pool-iPhone-15-PS5-story-gamified-on-Steam-I-bbfb547356784c11b340122cfe702043';
     }
-    return null;
   }, []);
 
   
