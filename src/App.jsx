@@ -13,6 +13,7 @@ import { shuffle } from "txt-shuffle";
 import Footer from "@comp/Footer";
 import "@comp/firebase";
 import "./App.css";
+import Bubble from './components/Bubble';
 
 const NEXT_CARD_TIME = 3000;
 const CARD_OFFSET_X_DEFAULT = -20;
@@ -65,6 +66,8 @@ const App = () => {
   const [slogan, setSlogan] = useState(slogansArr[0]);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const intervalRef = React.useRef();
+  const [showBubble, setShowBubble] = useState(true);
+  const handleCloseBubble = () => {setShowBubble(false);};
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -226,6 +229,16 @@ const App = () => {
 
   return (
     <>
+      {showBubble && (
+        <Bubble 
+        title="AI Generated Story Contest"
+        text="'WJoin ’What if…?‘ AI Generated Story Contest, Prize Pool: iPhone 15 & PS5 + story gamified on Steam/Itch."
+        onClose={handleCloseBubble}
+        image="public/img/logo/logo_01.png"
+        link="https://genworld.notion.site/Join-What-if-AI-Generated-Story-Contest-Prize-Pool-iPhone-15-PS5-story-gamified-on-Steam-I-bbfb547356784c11b340122cfe702043"
+      />
+      )}
+
       <div className="bgs">
         {bgSprings.map((props, i) => {
           return (
