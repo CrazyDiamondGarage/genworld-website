@@ -332,7 +332,7 @@ const App = () => {
             allowing players to easily play and create games through AI. To get
             more latest content, please{" "}
             <a
-              href=""
+              href="https://discord.gg/vKe5fRKM"
               style={{
                 color: "#00FF00",
               }}
@@ -351,22 +351,30 @@ const App = () => {
             }}
           >
             <NewsItem 
-              title="Title1" 
-              dateTime="2023 / 11 / 01" 
-              text="Text 1..." 
-              image="ImageURL1" 
+              title="'What if...?'AI Generated Story Contest" 
+              dateTime="2023 / 11 / 15" 
+              text="Join ’What if…?‘ AI Generated Story Contest, 
+              Prize Pool: iPhone 15 & PS5 + story gamified on Steam/Itch." 
+              image="public/img/events/1.jpg" 
+              link="https://genworld.notion.site/Join-What-if-AI-Generated-Story-Contest-Prize-Pool-iPhone-15-PS5-story-gamified-on-Steam-I-bbfb547356784c11b340122cfe702043"
             />
             <NewsItem 
-              title="Title2" 
+              title="China's first AI Micro-fiction Competition" 
               dateTime="2023 / 11 / 02" 
-              text="Text 2..." 
-              image="ImageURL2" 
+              text="💡 HuggingFace co-hosted with us
+              ,Got 1000+ participants
+              ,Reported by top press (36Kr, Geek Park, etc.)
+              ,Spread to reach of 200,000+ people.
+              " 
+              image="public/img/events/2.jpg" 
+              link="https://genworld.notion.site/Press-bf7421dffb8e4395a97bc77162f0c118?pvs=4"
             />
             <NewsItem 
-              title="Title3" 
+              title="To be determined" 
               dateTime="2023 / 11 / 03" 
               text="Text 3..." 
               image="ImageURL3" 
+              link=""
             />
           </Box>
         </Box>

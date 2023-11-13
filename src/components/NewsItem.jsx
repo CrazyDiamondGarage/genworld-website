@@ -1,6 +1,11 @@
 import { Box } from "@mui/material";
 
-export default function NewsItem({ title, dateTime, text, image }) {
+export default function NewsItem({ title, dateTime, text, image, link }) {
+  
+  const handleClick = () => {
+    window.location.href = link; 
+  };
+  
   return (
     <Box
       sx={{
@@ -11,7 +16,9 @@ export default function NewsItem({ title, dateTime, text, image }) {
         minWidth: "360px",
         maxWidth: "464px",
         height: "516px",
+        cursor: 'pointer' 
       }}
+      onClick={handleClick}
     >
       <Box
         sx={{
@@ -49,12 +56,16 @@ export default function NewsItem({ title, dateTime, text, image }) {
           height: "260px",
           mt: "24px",
           borderRadius: "8px",
+          overflow: 'hidden' 
         }}
       >
         <img
           src={image}
           height="260px"
           style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
             borderRadius: "8px",
           }}
           alt=""
