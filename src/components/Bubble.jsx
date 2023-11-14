@@ -39,6 +39,7 @@ const styles = {
     color: "black",
   },
   image: {
+    marginTop: "20px",
     maxWidth: "100%",
     borderRadius: "4px",
   },
