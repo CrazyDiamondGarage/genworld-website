@@ -273,7 +273,8 @@ const App = () => {
           Play online
         </div>
       </div>
-      <Lottie animationData={slideUp} />
+      
+      <Lottie className='anim-slide-up' animationData={slideUp} />
       <Footer />
     </>
   );

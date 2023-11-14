@@ -202,6 +202,15 @@
   background: linear-gradient(90deg, rgba(252, 112, 255, 0.64) 0%, rgba(255, 208, 86, 0.64) 100%);
 }
 
+.anim-slide-up {
+  position: fixed;
+  bottom: calc(48px * var(--zoom));
+  left: 0;
+  right: 0;
+  width: 40px;
+  margin: auto;
+}
+
 @media screen and (min-width: 1601px) {
   :root {
     --zoom: 1;
