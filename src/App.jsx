@@ -14,7 +14,7 @@ import Footer from "@comp/Footer";
 import Header from "@comp/Header";
 import "@comp/firebase";
 import "./App.css";
-import Bubble from './components/Bubble';
+import Bubble from "./components/Bubble";
 
 const NEXT_CARD_TIME = 3000;
 const CARD_OFFSET_X_DEFAULT = -20;
@@ -49,13 +49,7 @@ const bgsArr = [
   "/img/bg/bg_05.jpg",
 ];
 
-const slogansArr = [
-  "I-Se-Kai",
-  "CyberPunk",
-  "Sci-Fi",
-  "Dark Fantasy",
-  "School Romance",
-];
+const slogansArr = ["I-Se-Kai", "CyberPunk", "Sci-Fi", "Dark Fantasy", "School Romance"];
 
 // Clamp number between two values with the following line:
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
@@ -68,7 +62,9 @@ const App = () => {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const intervalRef = React.useRef();
   const [showBubble, setShowBubble] = useState(true);
-  const handleCloseBubble = () => {setShowBubble(false);};
+  const handleCloseBubble = () => {
+    setShowBubble(false);
+  };
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -105,13 +101,13 @@ const App = () => {
 
   useEffect(() => {
     // 检查当前路径是否为 '/events'
-    if (window.location.hash === '#event') {
+    if (window.location.hash === "#event") {
       // 如果是，则重定向到 notion
-      window.location.href = 'https://genworld.notion.site/Join-What-if-AI-Generated-Story-Contest-Prize-Pool-iPhone-15-PS5-story-gamified-on-Steam-I-bbfb547356784c11b340122cfe702043';
+      window.location.href =
+        "https://genworld.notion.site/Join-What-if-AI-Generated-Story-Contest-Prize-Pool-iPhone-15-PS5-story-gamified-on-Steam-I-bbfb547356784c11b340122cfe702043";
     }
   }, []);
 
-  
   const cardSprings = useSprings(
     cardsArr.length,
     cardsArr.map((card, i) => {
@@ -124,14 +120,8 @@ const App = () => {
       const innerWidth = window.innerWidth;
       const factor = innerWidth / 1440;
 
-      const parallaxX =
-        (mouse.x / window.innerWidth - 0.5) * CARD_PARALLAX_X_FACTOR;
-      const x =
-        clamp(
-          CARD_OFFSET_X_DEFAULT + parallaxX,
-          CARD_OFFSET_X_MIN,
-          CARD_OFFSET_X_MAX
-        ) * factor;
+      const parallaxX = (mouse.x / window.innerWidth - 0.5) * CARD_PARALLAX_X_FACTOR;
+      const x = clamp(CARD_OFFSET_X_DEFAULT + parallaxX, CARD_OFFSET_X_MIN, CARD_OFFSET_X_MAX) * factor;
 
       if (offset === 0) {
         adjustedIndex = offset < 0 ? cardsArr.length + offset : offset;
@@ -165,8 +155,7 @@ const App = () => {
       let adjustedIndex;
       let opacity = 1;
 
-      const parallaxX =
-        (mouse.x / window.innerWidth - 0.5) * BG_PARALLAX_X_FACTOR;
+      const parallaxX = (mouse.x / window.innerWidth - 0.5) * BG_PARALLAX_X_FACTOR;
       let transform = `translateX(${-parallaxX}px)`;
 
       adjustedIndex = offset < 0 ? bgsArr.length + offset : offset;
@@ -233,13 +222,13 @@ const App = () => {
       <Header />
 
       {showBubble && (
-        <Bubble 
-        title="AI Generated Story Contest"
-        text="'WJoin ’What if…?‘ AI Generated Story Contest, Prize Pool: iPhone 15 & PS5 + story gamified on Steam/Itch."
-        onClose={handleCloseBubble}
-        image="/img/logo/logo_01.png"
-        link="https://genworld.notion.site/Join-What-if-AI-Generated-Story-Contest-Prize-Pool-iPhone-15-PS5-story-gamified-on-Steam-I-bbfb547356784c11b340122cfe702043"
-      />
+        <Bubble
+          title="AI Generated Story Contest"
+          text="'WJoin ’What if…?‘ AI Generated Story Contest, Prize Pool: iPhone 15 & PS5 + story gamified on Steam/Itch."
+          onClose={handleCloseBubble}
+          image="/img/logo/logo_01.png"
+          link="https://genworld.notion.site/Join-What-if-AI-Generated-Story-Contest-Prize-Pool-iPhone-15-PS5-story-gamified-on-Steam-I-bbfb547356784c11b340122cfe702043"
+        />
       )}
 
       <div className="bgs">
@@ -261,23 +250,14 @@ const App = () => {
 
       <div className="cards" onClick={handleCardClick}>
         {cardSprings.map((props, i) => (
-          <animated.img
-            key={i}
-            className="card"
-            src={cardsArr[i]}
-            alt=""
-            style={props}
-            draggable={false}
-          />
+          <animated.img key={i} className="card" src={cardsArr[i]} alt="" style={props} draggable={false} />
         ))}
       </div>
 
       <div className="titles">
         <h2>Discover your unique</h2>
         <h1>
-          <span className={`card-slogan card-gradient-${sloganIdx}`}>
-            {slogan}
-          </span>
+          <span className={`card-slogan card-gradient-${sloganIdx}`}>{slogan}</span>
           <span className="card-cursor blink">_</span>
         </h1>
         <h2>adventure gaming</h2>
@@ -287,14 +267,10 @@ const App = () => {
           powered by <b>Generative AI</b>
         </div>
 
-        <div
-          className={`btn-play btn-play-gradient-${sloganIdx}`}
-          onClick={handlePlayClick}
-        >
+        <div className={`btn-play btn-play-gradient-${sloganIdx}`} onClick={handlePlayClick}>
           Play online
         </div>
       </div>
-
       <Footer />
     </>
   );
