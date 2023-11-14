@@ -10,8 +10,8 @@ import React from "react";
 const styles = {
   bubble: {
     position: "fixed",
-    top: "20px",
-    left: "20px",
+    top: "90px",
+    left: "120px",
     width: "300px",
     padding: "15px",
     backgroundColor: "#DBDDE9",
