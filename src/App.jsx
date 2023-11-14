@@ -11,6 +11,7 @@ import React, { useEffect, useState } from "react";
 import { animated, useSprings } from "@react-spring/web";
 import { shuffle } from "txt-shuffle";
 import Footer from "@comp/Footer";
+import Header from "@comp/Header";
 import "@comp/firebase";
 import "./App.css";
 import Bubble from './components/Bubble';
@@ -229,6 +230,8 @@ const App = () => {
 
   return (
     <>
+      <Header />
+
       {showBubble && (
         <Bubble 
         title="AI Generated Story Contest"

@@ -19,7 +19,7 @@ const Header = () => {
         <a href="https://genworld.io">
           <img id="header-logo" src="/img/logo/logo_01.png" alt="" draggable={false} />
         </a>
-        <img className="header-line" src="/img/icon/cutting_line.png" alt="" draggable={false} />
+        <div className='header-space'></div>
         <a className="header-social" href="https://twitter.com/GenWorld2023" target="_blank">
           <h4>
             <FaTwitter />
@@ -32,20 +32,6 @@ const Header = () => {
           </h4>
           <h5>Discord</h5>
         </a>
-        <img className="header-line" src="/img/icon/cutting_line.png" alt="" draggable={false} />
-        <a className="header-social" href="https://twitter.com/GenWorld2023" target="_blank">
-          <h5>About Us</h5>
-        </a>
-        <a className="header-social" href="mailto:contact@genworld.io" target="_blank">
-          <h5>Contact</h5>
-        </a>
-        <a className="header-social" href="https://genworld.notion.site/genworld/GenWorld-Terms-of-Service-c4a176057078458d9f3d3f25fa4f6d72" target="_blank">
-          <h5>Terms of Service</h5>
-        </a>
-        <a className="header-social" href="https://genworld.notion.site/GenWorld-Privacy-7c7274afce384cc29aabb95f941cfa1f" target="_blank">
-          <h5>Privacy Policy</h5>
-        </a>
-        <div id="header-copyright">© 2023 CRAZY DIAMOND </div>
       </div>
     </div>
   );
