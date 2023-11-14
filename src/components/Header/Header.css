@@ -51,7 +51,7 @@
 
 .header-social h4 {
   color: #fff;
-  font-size: calc(24px * var(--zoom));
+  font-size: calc(28px * var(--zoom));
   font-style: normal;
   font-weight: 500;
   line-height: 80%; /* 25.6px */
@@ -59,7 +59,7 @@
 
 .header-social h5 {
   color: #fff;
-  font-size: calc(18px * var(--zoom));
+  font-size: calc(24px * var(--zoom));
   font-style: normal;
   font-weight: 500;
   line-height: 80%; /* 25.6px */
