@@ -26,6 +26,7 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  opacity: 1;
 }
 
 #footer-logo {
@@ -37,6 +38,7 @@
 .footer-line {
   height: calc(28px * var(--zoom));
   margin: calc(10px * var(--zoom)) calc(36px * var(--zoom));
+  opacity: 0.4;
 }
 
 .footer-social {
@@ -49,19 +51,11 @@
   text-decoration: none;
 }
 
-.footer-social h4 {
-  color: #fff;
-  font-size: calc(24px * var(--zoom));
-  font-style: normal;
-  font-weight: 500;
-  line-height: 80%; /* 25.6px */
-}
-
 .footer-social h5 {
   color: #fff;
   font-size: calc(18px * var(--zoom));
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 80%; /* 25.6px */
 }
 
