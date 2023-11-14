@@ -234,7 +234,7 @@ const App = () => {
         title="AI Generated Story Contest"
         text="'WJoin ’What if…?‘ AI Generated Story Contest, Prize Pool: iPhone 15 & PS5 + story gamified on Steam/Itch."
         onClose={handleCloseBubble}
-        image="public/img/logo/logo_01.png"
+        image="/img/logo/logo_01.png"
         link="https://genworld.notion.site/Join-What-if-AI-Generated-Story-Contest-Prize-Pool-iPhone-15-PS5-story-gamified-on-Steam-I-bbfb547356784c11b340122cfe702043"
       />
       )}
