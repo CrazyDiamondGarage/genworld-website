@@ -1,11 +1,17 @@
+/**
+ * @copyright Copyright 2023 CRAZY DIAMOND PTE LTD. All rights reserved.
+ * @see Crazy Diamond: https://github.com/CrazyDiamondGarage
+ * @see GenWorld: https://genworld.io/
+ * @author jovi
+ */
+
 import { Box } from "@mui/material";
 
 export default function NewsItem({ title, dateTime, text, image, link }) {
-  
   const handleClick = () => {
-    window.location.href = link; 
+    window.location.href = link;
   };
-  
+
   return (
     <Box
       sx={{
@@ -16,16 +22,14 @@ export default function NewsItem({ title, dateTime, text, image, link }) {
         minWidth: "300px",
         maxWidth: "464px",
         height: "516px",
-        cursor: 'pointer' 
+        cursor: "pointer",
       }}
-      onClick={handleClick}
-    >
+      onClick={handleClick}>
       <Box
         sx={{
           fontSize: "1.5rem",
           fontWeight: 700,
-        }}
-      >
+        }}>
         {title}
       </Box>
       {/* Post Time */}
@@ -34,8 +38,7 @@ export default function NewsItem({ title, dateTime, text, image, link }) {
           fontSize: "1rem",
           fontWeight: 700,
           mt: "6px",
-        }}
-      >
+        }}>
         {dateTime}
       </Box>
 
@@ -45,8 +48,7 @@ export default function NewsItem({ title, dateTime, text, image, link }) {
           mt: "24px",
           fontWeight: 400,
           fontSize: "1rem",
-        }}
-      >
+        }}>
         {text}
       </Box>
 
@@ -56,16 +58,15 @@ export default function NewsItem({ title, dateTime, text, image, link }) {
           height: "260px",
           mt: "24px",
           borderRadius: "8px",
-          overflow: 'hidden' 
-        }}
-      >
+          overflow: "hidden",
+        }}>
         <img
           src={image}
           height="260px"
           style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
             borderRadius: "8px",
           }}
           alt=""
