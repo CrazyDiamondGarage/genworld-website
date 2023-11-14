@@ -229,7 +229,7 @@ const App = () => {
       {showBubble && (
         <Bubble
           title="AI Generated Story Contest"
-          text="'Join ’What if…?‘ AI Generated Story Contest, Prize Pool: iPhone 15 & PS5 + story gamified on Steam/Itch."
+          text=" Prize Pool: iPhone 15 & PS5 + story gamified on Steam/Itch."
           onClose={handleCloseBubble}
           image="/img/events/1.jpg"
           link="https://genworld.notion.site/Join-What-if-AI-Generated-Story-Contest-Prize-Pool-iPhone-15-PS5-story-gamified-on-Steam-I-bbfb547356784c11b340122cfe702043"
@@ -360,12 +360,19 @@ const App = () => {
               text="💡 HuggingFace co-hosted with us
               ,Got 1000+ participants
               ,Reported by top press (36Kr, Geek Park, etc.)
-              ,Spread to reach of 200,000+ people.
               "
               image="/img/events/2.jpg"
               link="https://genworld.notion.site/Press-bf7421dffb8e4395a97bc77162f0c118?pvs=4"
             />
-            {/* <NewsItem title="To be determined" dateTime="2023 / 11 / 03" text="Text 3..." image="ImageURL3" link="" />{" "} */}
+            <NewsItem
+              title="GenLegend is now on itch.io for alpha test!"
+              dateTime="2023 / 10 / 24"
+              text="GenWorld is an advanced AI RPG platform that 
+              supports user-generated templates and designs. 
+              "
+              image="/img/events/3.jpg"
+              link="https://genworld.itch.io/genlegend"
+            />
           </Box>
         </Box>
       </Drawer>
