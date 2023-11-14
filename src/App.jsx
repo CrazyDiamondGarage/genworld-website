@@ -365,7 +365,7 @@ const App = () => {
               image="/img/events/2.jpg"
               link="https://genworld.notion.site/Press-bf7421dffb8e4395a97bc77162f0c118?pvs=4"
             />
-            <NewsItem title="To be determined" dateTime="2023 / 11 / 03" text="Text 3..." image="ImageURL3" link="" />{" "}
+            {/* <NewsItem title="To be determined" dateTime="2023 / 11 / 03" text="Text 3..." image="ImageURL3" link="" />{" "} */}
           </Box>
         </Box>
       </Drawer>
