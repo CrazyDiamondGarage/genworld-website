@@ -6,11 +6,8 @@
  */
 
 import React from "react";
-import { FaTwitter, FaDiscord, FaVolumeHigh, FaVolumeXmark, FaQuestion, FaUserLarge } from "react-icons/fa6";
-import packageJson from "@/../package.json";
+import { FaTwitter, FaDiscord } from "react-icons/fa6";
 import "./Header.css";
-
-console.debug(`Version: ${packageJson.version}`);
 
 const Header = () => {
   return (
@@ -19,7 +16,7 @@ const Header = () => {
         <a href="https://genworld.io">
           <img id="header-logo" src="/img/logo/logo_01.png" alt="" draggable={false} />
         </a>
-        <div className='header-space'></div>
+        <div className="header-space"></div>
         <a className="header-social" href="https://twitter.com/GenWorld2023" target="_blank">
           <h4>
             <FaTwitter />
