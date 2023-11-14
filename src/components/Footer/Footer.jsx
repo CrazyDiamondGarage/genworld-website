@@ -6,7 +6,6 @@
  */
 
 import React from "react";
-import { FaTwitter, FaDiscord, FaVolumeHigh, FaVolumeXmark, FaQuestion, FaUserLarge } from "react-icons/fa6";
 import packageJson from "@/../package.json";
 import "./Footer.css";
 
