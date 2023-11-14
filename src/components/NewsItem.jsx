@@ -13,7 +13,7 @@ export default function NewsItem({ title, dateTime, text, image, link }) {
         background: "#3E4866",
         borderRadius: "24px",
         width: "30%",
-        minWidth: "360px",
+        minWidth: "300px",
         maxWidth: "464px",
         height: "516px",
         cursor: 'pointer' 
