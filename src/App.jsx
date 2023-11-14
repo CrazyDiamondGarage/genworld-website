@@ -229,9 +229,9 @@ const App = () => {
       {showBubble && (
         <Bubble
           title="AI Generated Story Contest"
-          text="'WJoin ’What if…?‘ AI Generated Story Contest, Prize Pool: iPhone 15 & PS5 + story gamified on Steam/Itch."
+          text="'Join ’What if…?‘ AI Generated Story Contest, Prize Pool: iPhone 15 & PS5 + story gamified on Steam/Itch."
           onClose={handleCloseBubble}
-          image="/img/logo/logo_01.png"
+          image="/img/events/1.jpg"
           link="https://genworld.notion.site/Join-What-if-AI-Generated-Story-Contest-Prize-Pool-iPhone-15-PS5-story-gamified-on-Steam-I-bbfb547356784c11b340122cfe702043"
         />
       )}
@@ -351,7 +351,7 @@ const App = () => {
               dateTime="2023 / 11 / 15"
               text="Join ’What if…?‘ AI Generated Story Contest, 
               Prize Pool: iPhone 15 & PS5 + story gamified on Steam/Itch."
-              image="public/img/events/1.jpg"
+              image="/img/events/1.jpg"
               link="https://genworld.notion.site/Join-What-if-AI-Generated-Story-Contest-Prize-Pool-iPhone-15-PS5-story-gamified-on-Steam-I-bbfb547356784c11b340122cfe702043"
             />
             <NewsItem
@@ -362,7 +362,7 @@ const App = () => {
               ,Reported by top press (36Kr, Geek Park, etc.)
               ,Spread to reach of 200,000+ people.
               "
-              image="public/img/events/2.jpg"
+              image="/img/events/2.jpg"
               link="https://genworld.notion.site/Press-bf7421dffb8e4395a97bc77162f0c118?pvs=4"
             />
             <NewsItem title="To be determined" dateTime="2023 / 11 / 03" text="Text 3..." image="ImageURL3" link="" />{" "}
