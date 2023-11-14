@@ -1,0 +1,98 @@
+/* @copyright Copyright 2023 CRAZY DIAMOND PTE LTD. All rights reserved. */
+/* @see Crazy Diamond: https://github.com/CrazyDiamondGarage */
+/* @see GenWorld: https://genworld.io/ */
+/* @author endaye */
+
+.header {
+  position: fixed;
+  bottom: 0;
+
+  /* background-color: magenta; */
+
+  background: rgba(0, 0, 0, 0.1);
+  background-blend-mode: soft-light;
+  backdrop-filter: blur(24px);
+  height: calc(84px * var(--zoom));
+  width: 100%;
+}
+
+.header-container {
+  height: 100%;
+  margin: 0 calc(150px * var(--zoom));
+
+  /* background-color: mediumaquamarine; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#header-logo {
+  position: relative;
+  margin-top: calc(8px * var(--zoom));
+  height: calc(42px * var(--zoom));
+}
+
+.header-line {
+  height: calc(28px * var(--zoom));
+  margin: calc(10px * var(--zoom)) calc(36px * var(--zoom));
+}
+
+.header-social {
+  display: flex;
+  flex-direction: row;
+
+  padding: calc(21px * var(--zoom)) calc(16px * var(--zoom));
+  align-items: center;
+  gap: calc(12px * var(--zoom));
+  text-decoration: none;
+}
+
+.header-social h4 {
+  color: #fff;
+  font-size: calc(24px * var(--zoom));
+  font-style: normal;
+  font-weight: 500;
+  line-height: 80%; /* 25.6px */
+}
+
+.header-social h5 {
+  color: #fff;
+  font-size: calc(18px * var(--zoom));
+  font-style: normal;
+  font-weight: 500;
+  line-height: 80%; /* 25.6px */
+}
+
+#header-copyright {
+  flex-grow: 1;
+  text-align: right;
+  color: #fff;
+  font-size: calc(18px * var(--zoom));
+  font-weight: 700;
+  line-height: 80%; /* 19.2px */
+  cursor: default;
+}
+
+@media screen and (min-width: 1601px) {
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1600px) {
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+  .header-container {
+    margin: 0 20px;
+  }
+
+  .header-social h5 {
+    display: none;
+  }
+}
