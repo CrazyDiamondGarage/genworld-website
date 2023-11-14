@@ -9,12 +9,14 @@
 
 import React, { useEffect, useState } from "react";
 import { animated, useSprings } from "@react-spring/web";
+import Lottie from "lottie-react";
 import { shuffle } from "txt-shuffle";
 import Footer from "@comp/Footer";
 import Header from "@comp/Header";
 import "@comp/firebase";
 import "./App.css";
 import Bubble from "./components/Bubble";
+import slideUp from "@asset/lottie/slideUp.json";
 
 const NEXT_CARD_TIME = 3000;
 const CARD_OFFSET_X_DEFAULT = -20;
@@ -271,6 +273,7 @@ const App = () => {
           Play online
         </div>
       </div>
+      <Lottie animationData={slideUp} />
       <Footer />
     </>
   );
