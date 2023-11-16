@@ -55,14 +55,14 @@ export default function NewsItem({ title, dateTime, text, image, link }) {
       {/* Image */}
       <Box
         sx={{
-          height: "180px",
+          height: "260px",
           mt: "24px",
           borderRadius: "8px",
           overflow: "hidden",
         }}>
         <img
           src={image}
-          height="180px"
+          height="260px"
           style={{
             width: "100%",
             height: "100%",
