@@ -279,7 +279,7 @@ const App = () => {
 
       <Box
         sx={{
-          width: "24px",
+          width: "32px",
           position: "fixed",
           bottom: "calc(84px * var(--zoom))",
           left: "50%",
