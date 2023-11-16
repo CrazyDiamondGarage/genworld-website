@@ -361,7 +361,7 @@ const App = () => {
               mt: "48px",
             }}>
             <NewsItem
-              title="'What if...?'AI Generated Story Contest"
+              title="'What if...?' AI Generated Story Contest"
               dateTime="2023 / 11 / 15"
               text="Join ’What if…?‘ AI Generated Story Contest, 
               Prize Pool: iPhone 15 & PS5 + story gamified on Steam/Itch."
