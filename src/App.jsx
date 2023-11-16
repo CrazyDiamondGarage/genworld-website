@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 import { animated, useSprings } from "@react-spring/web";
 import Lottie from "lottie-react";
 import { shuffle } from "txt-shuffle";
-import { Box, Drawer, Typography } from "@mui/material";
+import { Box, SwipeableDrawer, Typography } from "@mui/material";
 import Footer from "@comp/Footer";
 import Header from "@comp/Header";
 import "@comp/firebase";
@@ -290,7 +290,7 @@ const App = () => {
         }}>
         <Lottie animationData={slideUp} loop={true} />
       </Box>
-      <Drawer
+      <SwipeableDrawer
         anchor="bottom"
         open={openRecentNews}
         onClose={() => setOpenRecentNews(false)}
@@ -375,7 +375,7 @@ const App = () => {
             />
           </Box>
         </Box>
-      </Drawer>
+      </SwipeableDrawer>
 
       <Footer />
     </>
