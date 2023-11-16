@@ -200,6 +200,14 @@ const App = () => {
     window.open("https://legend.genworld.io/");
   };
 
+  const handleScroll = (e) => {
+    if (e.deltaY > 2) {
+      setOpenRecentNews(true);
+    } else if (e.deltaY < -2) {
+      setOpenRecentNews(false);
+    }
+  };
+
   useEffect(() => {
     if (animationPaused && intervalRef.current) {
       clearInterval(intervalRef.current);
@@ -221,6 +229,12 @@ const App = () => {
       },
     });
   }, [sloganIdx]);
+
+  useEffect(() => {
+    window.addEventListener("mousewheel", handleScroll);
+
+    return () => window.removeEventListener("mousewheel", handleScroll);
+  });
 
   return (
     <>
