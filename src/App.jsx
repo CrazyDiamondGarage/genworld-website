@@ -242,11 +242,11 @@ const App = () => {
 
       {showBubble && (
         <Bubble
-          title="AI Generated Story Contest"
-          text=" Prize Pool: iPhone 15 & PS5 + story gamified on Steam/Itch."
+          title="Proud to contribute to FOCG"
+          text=" Our fully on-chain game design has won in the Realms Grant!"
           onClose={handleCloseBubble}
-          image="/img/events/1.jpg"
-          link="https://genworld.notion.site/Join-What-if-AI-Generated-Story-Contest-Prize-Pool-iPhone-15-PS5-story-gamified-on-Steam-I-bbfb547356784c11b340122cfe702043"
+          image="/img/events/1.jepg"
+          link="https://twitter.com/LootRealms/status/1733242776806883594"
         />
       )}
 
