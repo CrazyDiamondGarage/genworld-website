@@ -245,7 +245,7 @@ const App = () => {
           title="Proud to contribute to FOCG"
           text=" Our fully on-chain game design has won in the Realms Grant!"
           onClose={handleCloseBubble}
-          image="/img/events/1.jepg"
+          image="/img/events/1.jpg"
           link="https://twitter.com/LootRealms/status/1733242776806883594"
         />
       )}
